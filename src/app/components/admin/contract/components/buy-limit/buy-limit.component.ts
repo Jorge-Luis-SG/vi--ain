@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { toWei } from 'src/app/helpers/utils';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-buy-limit',
@@ -11,10 +12,11 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
   styleUrls: ['./buy-limit.component.css']
 })
 export class BuyLimitComponent implements OnInit {
-  public form: FormGroup;
-  submitted = false;
 
+  public form: FormGroup;
+  public submitted = false;
   public dataStatus$!: Observable<any>;
+  public token = environment.mainToken.symbol;
 
   constructor(
     public fb: FormBuilder,

@@ -11,6 +11,11 @@ export const environment = {
   contractAddress: "####",
   infuraId: "#",
   urlTokenLogo: "#",
+  mainToken: {
+    name: "DAPP TEST",
+    symbol: "DPPT",
+    decimals: "18",
+  },
   chain: {
 
     // Testnet

@@ -7,7 +7,7 @@
             Límite de compra
         </h5>
         <p class="card-text">
-            límite actual {{(dataStatus$ | async)?.dayBuyLimit | web3Utils:'fromWei'}} KENY
+            límite actual {{(dataStatus$ | async)?.dayBuyLimit | web3Utils:'fromWei'}} {{token | uppercase}}
         </p>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
