@@ -22,7 +22,7 @@ export class SellLimitComponent implements OnInit {
     public sweetalert2Service: Sweetalert2Service,
   ) {
     this.form = fb.group({
-      value: [0, Validators.required],
+      value: [0, [Validators.required, Validators.min(1)]],
     });
   }
 

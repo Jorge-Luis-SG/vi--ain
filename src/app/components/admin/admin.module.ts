@@ -10,10 +10,6 @@ import { FactorySwapComponent } from './factory-swap/factory-swap.component';
 import { FactorySwapUpdatePairComponent } from './factory-swap-update-pair/factory-swap-update-pair.component';
 import { WithdrawMaticOwnerComponent } from './withdraw-matic-owner/withdraw-matic-owner.component';
 import { WithdrawTokenOnwerComponent } from './withdraw-token-onwer/withdraw-token-onwer.component';
-import { TransferOwnershipComponent } from './transfer-ownership/transfer-ownership.component';
-import { PausableComponent } from './pausable/pausable.component';
-import { BurnComponent } from './burn/burn.component';
-import { MintComponent } from './mint/mint.component';
 import { BalanceOfContractEtherComponent } from './balance-of-contract-ether/balance-of-contract-ether.component';
 import { SecurityModule } from './security/security.module';
 import { ContractModule } from './contract/contract.module';
@@ -27,10 +23,6 @@ import { ContractModule } from './contract/contract.module';
     FactorySwapUpdatePairComponent,
     WithdrawMaticOwnerComponent,
     WithdrawTokenOnwerComponent,
-    TransferOwnershipComponent,
-    PausableComponent,
-    BurnComponent,
-    MintComponent,
     BalanceOfContractEtherComponent,
   ],
   imports: [

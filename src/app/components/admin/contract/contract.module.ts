@@ -7,6 +7,10 @@ import { BuyLimitComponent } from './components/buy-limit/buy-limit.component';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SellLimitComponent } from './components/sell-limit/sell-limit.component';
+import { PausableComponent } from './components/pausable/pausable.component';
+import { BurnComponent } from './components/burn/burn.component';
+import { MintComponent } from './components/mint/mint.component';
+import { TransferOwnershipComponent } from './components/transfer-ownership/transfer-ownership.component';
 
 
 @NgModule({
@@ -14,6 +18,10 @@ import { SellLimitComponent } from './components/sell-limit/sell-limit.component
     ContractComponent,
     BuyLimitComponent,
     SellLimitComponent,
+    PausableComponent,
+    BurnComponent,
+    MintComponent,
+    TransferOwnershipComponent,
   ],
   imports: [
     CommonModule,

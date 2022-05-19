@@ -1,0 +1,54 @@
+<div class="card">
+    <h5 class="card-header">
+        Burn
+    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            Burn Tokens on Wallet
+        </h5>
+        <p class="card-text">
+            Burn: Destruirá los tokens de una dirección ingresada y luego disminuirá el suministro total
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-floating mb-3">
+                <input type="text" formControlName="account" class="form-control" placeholder="Wallet Address">
+                <label for="floatingInput">
+                    Wallet Address
+                </label>
+
+                <div *ngIf="submitted && f.account.errors" class="invalid-feedback">
+                    <div *ngIf="f.account.errors.required" class="ion-text-center red">
+                        <p>
+                            {{'is required' | titlecase }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="amount" class="form-control" placeholder="Amount">
+                <label for="floatingInput">
+                    Amount
+                </label>
+
+                <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                    <div *ngIf="f.amount.errors.required" class="ion-text-center red">
+                        <p>
+                            {{'is required' | titlecase }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                    {{'burn' | titlecase}}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

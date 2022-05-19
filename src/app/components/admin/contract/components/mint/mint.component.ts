@@ -1,14 +1,14 @@
-import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContractService } from 'src/app/services/contract.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-burn',
-  templateUrl: './burn.component.html',
-  styleUrls: ['./burn.component.scss']
+  selector: 'app-mint',
+  templateUrl: './mint.component.html',
+  styleUrls: ['./mint.component.scss']
 })
-export class BurnComponent implements OnInit {
+export class MintComponent implements OnInit {
 
   public form: FormGroup;
   submitted = false;
@@ -16,41 +16,39 @@ export class BurnComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public contractService: ContractService) {
+
     this.form = fb.group({
-      account: [environment.contractAddress, Validators.required],
+      account: ["", [Validators.required, Validators.min(1)]],
       amount: ["", Validators.required]
     });
   }
 
   ngOnInit(): void {
+
+
+
   }
 
   get f() {
     return this.form.controls;
   }
 
-  submit() {
+  onSubmit() {
     this.submitted = true;
-
-    const data = this.form.value;
-    console.log("data", data)
-    console.log("this.form.invalid", this.form.invalid)
 
     if (this.form.invalid) {
       return;
     }
-
-
+    const data = this.form.value;
+    console.log("data", data)
 
     // convientes las cantidades a ether
-    // let amount = this.contractService.toWei(data.amount)
+    // let amount = this.contractService.toWei(data.stakeAmount)
 
 
-    // this.contractService.burn(data.account, amount)
+    // this.contractService._mint(data.account, amount)
     // this.form.reset();
     // this.submitted = false;
-
-
   }
 
 }

@@ -17,7 +17,7 @@ export class TransferOwnershipComponent implements OnInit {
     public fb: FormBuilder,
     public contractService: ContractService) {
     this.form = fb.group({
-      account: ['', Validators.required],
+      address: ['', Validators.required],
     });
   }
 
@@ -28,22 +28,18 @@ export class TransferOwnershipComponent implements OnInit {
     return this.form.controls;
   }
 
-  submit() {
+  onSubmit() {
     this.submitted = true;
 
     const data = this.form.value;
     console.log("data", data)
-    console.log("this.form.invalid", this.form.invalid)
 
     if (this.form.invalid) {
       return;
     }
 
-
     console.log("data.account", data.account.trim())
-    this.contractService.transferOwnership(data.account.trim())
-
-
+    // this.contractService.transferOwnership(data.account.trim())
   }
 
 }

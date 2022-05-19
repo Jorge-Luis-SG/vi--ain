@@ -1,0 +1,26 @@
+<div class="card">
+    <h5 class="card-header">
+        Pausar o reanudar contrato
+    </h5>
+
+    <div class="card-body">
+        <h5 class="card-title">
+            Pausar / Renaudar Contrato
+        </h5>
+        <p class="card-text">
+            <strong>Pause:</strong> llamado por el propietario para pausar, desencadena el estado detenido
+        </p>
+        <p class="card-text">
+            <strong>Unpause:</strong> llamado por el propietario para anular la pausa, vuelve al estado normal
+        </p>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button" class="btn btn-primary" (click)="pause()">
+                {{'pause' | titlecase}}
+            </button>
+            <button type="button" class="btn btn-primary" (click)="Unpause()">
+                {{'Unpause' | titlecase}}
+            </button>
+        </div>
+    </div>
+</div>

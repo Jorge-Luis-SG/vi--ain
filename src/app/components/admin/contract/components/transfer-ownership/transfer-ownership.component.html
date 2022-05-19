@@ -1,20 +1,24 @@
 <div class="card">
     <h5 class="card-header">
-        Establecer límite
+        Transfer Property
     </h5>
     <div class="card-body">
         <h5 class="card-title">
-            Límite de compra
+            
+        </h5>
+        <h5 class="card-title">
+            Transferir propiedad del contrato
         </h5>
         <p class="card-text">
-            límite actual {{(dataStatus$ | async)?.dayBuyLimit | web3Utils:'fromWei'}} KENY
+            Transfiere la propiedad del contrato a una nueva cuenta ("newOwner").
+            Solo puede ser llamado por el propietario actual.
         </p>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
             <div class="form-floating mb-3">
-                <input type="number" formControlName="value" class="form-control" placeholder="Limit">
+                <input type="text" formControlName="address" class="form-control" placeholder="Address">
                 <label for="floatingInput">
-                    Limit
+                    Wallet Address
                 </label>
               </div>
 
