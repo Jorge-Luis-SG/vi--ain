@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./factory-swap/factory-swap-routing.module').then(m => m.FactorySwapRoutingModule)
   },
   {
+    path: 'factory-pool',
+    loadChildren: () => import('./factory-pool/factory-pool-routing.module').then(m => m.FactoryPoolRoutingModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/admin/dashboard'

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FactorySwapComponent } from './factory-swap.component';
+import { FactoryPoolComponent } from './factory-pool.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FactorySwapComponent,
+    component: FactoryPoolComponent,
   },
   {
       path: '**',
       pathMatch: 'full',
-      redirectTo: '/admin/factory-swap',
+      redirectTo: '/admin/factory-pool',
   }, 
 ];
 
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FactorySwapRoutingModule { }
+export class FactoryPoolRoutingModule { }

@@ -8,6 +8,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { SecurityModule } from './security/security.module';
 import { ContractModule } from './contract/contract.module';
 import { FactorySwapModule } from './factory-swap/factory-swap.module';
+import { FactoryPoolModule } from './factory-pool/factory-pool.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FactorySwapModule } from './factory-swap/factory-swap.module';
     SecurityModule,
     ContractModule,
     FactorySwapModule,
+    FactoryPoolModule,
   ]
 })
 export class AdminModule { }
