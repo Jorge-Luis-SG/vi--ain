@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./factory-stake-token/factory-stake-token-routing.module').then(m => m.FactoryStakeTokenRoutingModule)
   },
   {
+    path: 'factory-stake-nft',
+    loadChildren: () => import('./factory-stake-nft/factory-stake-nft-routing.module').then(m => m.FactoryStakeNftRoutingModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/admin/dashboard'

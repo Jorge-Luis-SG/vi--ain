@@ -10,6 +10,7 @@ import { ContractModule } from './contract/contract.module';
 import { FactorySwapModule } from './factory-swap/factory-swap.module';
 import { FactoryPoolModule } from './factory-pool/factory-pool.module';
 import { FactoryStakeTokenModule } from './factory-stake-token/factory-stake-token.module';
+import { FactoryStakeNftModule } from './factory-stake-nft/factory-stake-nft.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FactoryStakeTokenModule } from './factory-stake-token/factory-stake-tok
     FactorySwapModule,
     FactoryPoolModule,
     FactoryStakeTokenModule,
+    FactoryStakeNftModule,
   ]
 })
 export class AdminModule { }

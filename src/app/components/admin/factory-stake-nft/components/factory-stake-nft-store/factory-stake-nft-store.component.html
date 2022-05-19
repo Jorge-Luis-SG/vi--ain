@@ -1,0 +1,61 @@
+<div class="modal fade" id="modalStoreStake" tabindex="-1" aria-labelledby="modalStoreStakeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header text-dark">
+                <h3 class="text-center">Añadir nuevo stake NFT</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModalBtn></button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="registerStakeNFT()">
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nombre del NFT</span>
+                        <input type="number" class="form-control" formControlName="_nameAddressNft" placeholder="Nombre del NFT">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Address del NFT</span>
+                        <input type="number" class="form-control" formControlName="_addressNft" placeholder="Address del NFT">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nombre del Token Reward</span>
+                        <input type="number" class="form-control" formControlName="_nameAddressTokenReward" placeholder="Nombre del Token Reward">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Address del Token Reward</span>
+                        <input type="number" class="form-control" formControlName="_rewardTotal" placeholder="Address del Token Reward">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Reward Total</span>
+                        <input type="number" class="form-control" formControlName="_addressTokenReward" placeholder="Reward Total">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Day</span>
+                        <input type="number" class="form-control" formControlName="_day" placeholder="Dias de Staking">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">active</span>
+                        <select class="form-select" formControlName="active">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+
+                    <div class="mb3">
+                        <div id="emailHelp" class="form-text">Unicamente Administrador</div>
+                        <button class="btn btn-sm btn-primary" type="submit" [disabled]="!this.form.valid">
+                            Store
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
