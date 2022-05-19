@@ -1,0 +1,80 @@
+<section class="jumbotron text-center mysection">
+    <div class="container ">
+        <h1 class="jumbotron-heading text-dark mytext">Factory Stake Token</h1>
+    </div>
+</section>
+<div class="album py-5 ">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-12">
+                <div class="card w-100 text-dark">
+                    <div class="card-header">
+                        <div class="hstack gap-2">
+                            <h2 class="border">Factory Stake Token</h2>
+        
+                            <button type="button" class="ms-auto border btn btn-sm btn-outline-primary" (click)="loadStakeList()">Refresh</button>
+                            <div class="vr"></div>
+                            <button type="button" class="border btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalStoreStake">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">nameAddressToken</th>
+                                        <th scope="col">addressToken</th>
+                                        <th scope="col">rewardRate</th>
+                                        <th scope="col">rewardPerMonth</th>
+                                        <th scope="col">day</th>
+                                        <th scope="col">minStaked</th>
+                                        <th scope="col">status</th>
+                                        <th scope="col">Option</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="stakeList.length > 0; else noStakeList">
+                                        <tr class="align-middle" *ngFor="let item of stakeList; let i = index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{item.nameAddressToken}}</td>
+                                            <td>{{item.addressToken}}</td>
+                                            <td>{{item.rewardRate}}</td>
+                                            <td>{{item.rewardPerMonth}}</td>
+                                            <td>{{item.day}}</td>
+                                            <td>{{item.minStaked}}</td>
+                                            <td>{{item.status}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#modalUpdatePair" (click)="updateStake(item)">
+                                                    <ng-container *ngIf="!item.active">
+                                                        <i class="bi bi-eye-fill"></i>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="item.active">
+                                                        <i class="bi bi-eye-slash-fill"></i>
+                                                    </ng-container>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                    <ng-template #noStakeList>
+                                        <tr>
+                                            <td colspan="9" class="text-center">
+                                                No pair registered yet
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-factory-stake-token-store></app-factory-stake-token-store>>

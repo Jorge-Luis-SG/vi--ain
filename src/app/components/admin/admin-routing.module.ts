@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./factory-pool/factory-pool-routing.module').then(m => m.FactoryPoolRoutingModule)
   },
   {
+    path: 'factory-stake-token',
+    loadChildren: () => import('./factory-stake-token/factory-stake-token-routing.module').then(m => m.FactoryStakeTokenRoutingModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/admin/dashboard'
