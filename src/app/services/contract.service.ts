@@ -89,7 +89,7 @@ export class ContractService {
    * Conectar Wallet
    */
   async connectAccount() {
-    this._web3Modal.clearCachedProvider();
+    // this._web3Modal.clearCachedProvider();
 
     this.provider = await this._web3Modal.connect(); // set provider
     this.web3js = new Web3(this.provider); // create web3 instance
