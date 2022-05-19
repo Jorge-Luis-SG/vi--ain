@@ -13,17 +13,16 @@ export class DashboardComponent implements OnInit {
   accountStatus: any;
   account: any;
 
-
   constructor(
     public contractService: ContractService,
     public commonService: CommonService,
   ) {
-    this.contractService.connectAccount()
-    this.contractService.dataStatus$.subscribe(res => {
-      if (!res) { return }
-      this.accountStatus = res;
-      this.account = this.accountStatus["accounts"]
-    })
+    // this.contractService.connectAccount()
+    // this.contractService.dataStatus$.subscribe(res => {
+    //   if (!res) { return }
+    //   this.accountStatus = res;
+    //   this.account = this.accountStatus["accounts"]
+    // })
   }
 
   ngOnInit(): void {

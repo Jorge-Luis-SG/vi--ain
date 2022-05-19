@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./security/security-routing.module').then(m => m.SecurityRoutingModule)
   },
   {
+    path: 'contract',
+    loadChildren: () => import('./contract/contract-routing.module').then(m => m.ContractRoutingModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/admin/dashboard'

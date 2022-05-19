@@ -1,0 +1,29 @@
+<div class="card">
+    <h5 class="card-header">
+        Establecer límite
+    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            Límite de compra
+        </h5>
+        <p class="card-text">
+            límite actual {{(dataStatus$ | async)?.dayBuyLimit | web3Utils:'fromWei'}} KENY
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="value" class="form-control" placeholder="Limit">
+                <label for="floatingInput">
+                    Limit
+                </label>
+              </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

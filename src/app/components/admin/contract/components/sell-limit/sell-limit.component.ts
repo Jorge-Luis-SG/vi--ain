@@ -31,7 +31,7 @@ export class SellLimitComponent implements OnInit {
   }
 
   // @dev - Set a new Sell limit
-  async setSellLimit() {
+  async onSubmit() {
     this.submitted = true;
     const _data = this.form.value;
     console.warn("_data", _data)
