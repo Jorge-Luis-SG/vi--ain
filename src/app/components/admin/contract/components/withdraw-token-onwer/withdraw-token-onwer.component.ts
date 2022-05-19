@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Observable, Subscription } from 'rxjs';
-import { fromWei, toWei } from 'src/app/helpers/utils';
+import { Observable } from 'rxjs';
+import { toWei } from 'src/app/helpers/utils';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 
@@ -14,41 +13,29 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 export class WithdrawTokenOnwerComponent implements OnInit {
 
   public form: FormGroup;
-  submitted = false;
+  public submitted = false;
 
   public pair: any = null;
   public pairList: any[] = [];
 
   public dataStatus$!: Observable<any>;
 
-  private sub$!: Subscription;
-
   constructor(
     public fb: FormBuilder,
     public contractService: ContractService,
     public sweetalert2Service: Sweetalert2Service,
-    private spinner: NgxSpinnerService,
   ) {
-    this.contractService.connectAccount();
-
     this.form = fb.group({
-      value: [0, [Validators.required, Validators.min(1)]],
+      amount: [0, [Validators.required, Validators.min(1)]],
     });
   }
 
   ngOnInit(): void {
-    // this.loadPairList();
-
-    // this.sub$ = this.contractService.dataStatus$
-    //   .subscribe((dataStatus) => {
-
-    //     if(!dataStatus){
-    //       this.pairList = [];
-    //     }else{
-    //       this.loadPairs();
-    //     }
-    //   });
+    this.dataStatus$ = this.contractService.dataStatus$;
   }
+
+  connectWallet(){ this.contractService.connectAccount(); }
+
 
   async loadPairs(){
     const pairList: any = await this.contractService.pairList();
@@ -58,41 +45,44 @@ export class WithdrawTokenOnwerComponent implements OnInit {
 
     for (const [idx, entry] of Object.entries(pairList)) {
       const row: any = entry;
-      if(row[11]){
-        toFormat.push( this.contractService.getTokenName(row, idx) );
-      }
+      toFormat.push( this.contractService.getTokenName(row, idx) );
     }
 
     const result = await Promise.all( toFormat );
+
+    console.log('pairList', result);
     // console.log({result});
-    this.pairList = result.filter((row) => !row.isNative)
+    
+    // this.pairList = result.filter((row) => row.active)
+    this.pairList = result.filter((row) => !row.isNative && row.active)
+
+    console.log({result: this.pairList});
   }
+
 
   async selectPair(item){
     this.pair = item;
   }
 
+
   removePair(){ this.pair = null; }
 
+
   // @dev - Set a new Buy limit
-  async withdrawTokenOnwer() {
-    
-    if(this.form.invalid){ return; }
-    
-    if(!this.pair){ return; }
+  async onSubmit() {
     
     this.submitted = true;
-
     const _data = this.form.value;
     console.warn("_data", _data)
 
+    if (this.form.invalid) {
+      return;
+    }
+
     try {
-      console.log(this.pair);
       const amount = toWei(_data.value, this.pair.tokenA.decimal);
-
       const withdraw = await this.contractService.withdrawTokenOnwer(this.pair.tokenA.contract, amount);
-
-      return this.sweetalert2Service.showSuccess('Transacción exitosa');
+      return this.sweetalert2Service.showSuccess('Transacción exitosa', 0);
     } catch (err) {
       console.log('Error on WithdrawTokenOnwerComponent@withdrawTokenOnwer', err);
     }

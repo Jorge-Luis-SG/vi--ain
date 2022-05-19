@@ -1,0 +1,91 @@
+<div class="card">
+    <h5 class="card-header">
+        Withdrawal
+    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            Withdraw token owner
+        </h5>
+        <p class="card-text">
+            Retirar tokens
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <ng-container *ngIf="(dataStatus$ | async) as dataStatus; else noConnected">
+                <ng-container *ngIf="pair; else noPairSelected">
+                    <div class="mb-3">
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>({{pair?.tokenA.symbol | titlecase }})</strong> {{pair?.tokenA.name | titlecase }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="removePair()"></button>
+                        </div>
+                    </div>
+                </ng-container>
+    
+    
+                <ng-template #noPairSelected>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" placeholder="Amount" readonly (click)="loadPairs()" data-bs-toggle="modal" data-bs-target="#modalSelectPair">
+                        <label for="floatingInput">
+                            {{'Select Token' | titlecase}}
+                        </label>
+                    </div>
+                </ng-template>
+            </ng-container>
+
+            <ng-template #noConnected>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-warning" (click)="connectWallet()">
+                        Please connect the wallet before continue
+                    </button>
+                </div>
+            </ng-template>
+
+
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="amount" class="form-control" placeholder="Amount">
+                <label for="floatingInput">
+                    Amount
+                </label>
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid && !pair">
+                    {{'retirar' | titlecase}}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalSelectPair" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalSelectPairLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark">Seleccione Token:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="list-group list-group-flush text-dark">
+                    
+                    <ng-container *ngIf="(pairList && pairList.length > 0); else noPairList">
+
+                        <a *ngFor="let item of pairList; index as idx" class="text-dark" href="javascript:void(0)" (click)="selectPair(item)" data-bs-dismiss="modal">
+
+                            <strong>({{item?.tokenA.symbol | titlecase }})</strong> {{item?.tokenA.name | titlecase }}
+
+                        </a>
+
+                    </ng-container>
+
+                    <ng-template #noPairList>
+                        <a class="text-dark" href="javascript:void(0)" data-bs-dismiss="modal" class="text-center"> No hay opciones disponibles</a>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
