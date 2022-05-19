@@ -1,0 +1,86 @@
+<section class="jumbotron text-center mysection">
+    <div class="container ">
+        <h1 class="jumbotron-heading text-dark mytext">Factory Swap</h1>
+    </div>
+</section>
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="card">
+
+            <div class="card-header">
+                <div class="hstack gap-2">
+                    <h2 class="border">Pairs</h2>
+
+                    <button type="button" class="ms-auto border btn btn-sm btn-outline-primary" (click)="loadPairList()">Refresh</button>
+                    <div class="vr"></div>
+                    <button type="button" class="border btn btn-sm btn-outline-primary"
+                        data-bs-toggle="modal" data-bs-target="#modalStorePair">Add</button>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Pair</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">Active Oracle</th>
+                                <th scope="col">Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <ng-container *ngIf="pairList.length > 0; else noPair">
+                                <tr *ngFor="let item of pairList; let i = index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{item.tokenA.name}} - {{item.tokenB.name}} </td>
+                                    <td>{{item.active}}</td>
+                                    <td>{{item.activeOracle}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#modalUpdatePair" (click)="updatePair(item)">
+                                            Update
+                                        </button>
+                                    </td>
+                                </tr>
+                            </ng-container>
+
+                            <ng-template #noPair>
+                                <tr>
+                                    <td colspan="5" class="text-center">
+                                        No pair registered yet
+                                    </td>
+                                </tr>
+                            </ng-template>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <app-factory-swap-store-pair></app-factory-swap-store-pair>
+
+
+
+<div class="modal fade" id="modalUpdatePair" tabindex="-1" aria-labelledby="modalUpdatePairLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header text-dark">
+                <h3 class="text-center">Update Pair</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeUpdateModalBtn></button>
+            </div>
+
+            <div class="modal-body">
+                <app-factory-swap-update-pair [pair]="toUpdate" (onUpdate)="onUpdateCall()"></app-factory-swap-update-pair>
+            </div>
+        </div>
+    </div>
+</div> -->
