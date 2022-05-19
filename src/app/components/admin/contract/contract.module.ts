@@ -11,6 +11,7 @@ import { PausableComponent } from './components/pausable/pausable.component';
 import { BurnComponent } from './components/burn/burn.component';
 import { MintComponent } from './components/mint/mint.component';
 import { TransferOwnershipComponent } from './components/transfer-ownership/transfer-ownership.component';
+import { SetVaultAddressComponent } from './components/set-vault-address/set-vault-address.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TransferOwnershipComponent } from './components/transfer-ownership/tran
     BurnComponent,
     MintComponent,
     TransferOwnershipComponent,
+    SetVaultAddressComponent,
   ],
   imports: [
     CommonModule,

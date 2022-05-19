@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetValueAddressComponent } from './set-value-address.component';
+import { SetVaultAddressComponent } from './set-vault-address.component';
 
-describe('SetValueAddressComponent', () => {
-  let component: SetValueAddressComponent;
-  let fixture: ComponentFixture<SetValueAddressComponent>;
+describe('SetVaultAddressComponent', () => {
+  let component: SetVaultAddressComponent;
+  let fixture: ComponentFixture<SetVaultAddressComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SetValueAddressComponent ]
+      declarations: [ SetVaultAddressComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SetValueAddressComponent);
+    fixture = TestBed.createComponent(SetVaultAddressComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

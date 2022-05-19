@@ -5,7 +5,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/pipes/pipes.module';
-import { SetValueAddressComponent } from './set-value-address/set-value-address.component';
 import { FactorySwapComponent } from './factory-swap/factory-swap.component';
 import { FactorySwapUpdatePairComponent } from './factory-swap-update-pair/factory-swap-update-pair.component';
 import { WithdrawMaticOwnerComponent } from './withdraw-matic-owner/withdraw-matic-owner.component';
@@ -18,7 +17,6 @@ import { ContractModule } from './contract/contract.module';
 @NgModule({
   declarations: [
     DashboardComponent,
-    SetValueAddressComponent,
     FactorySwapComponent,
     FactorySwapUpdatePairComponent,
     WithdrawMaticOwnerComponent,
