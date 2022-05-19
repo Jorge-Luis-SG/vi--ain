@@ -1,0 +1,53 @@
+<div class="modal fade" id="modalStorePool" tabindex="-1" aria-labelledby="modalStorePoolLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header text-dark">
+                <h3 class="text-center">Añadir nuevo stake NFT</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModalBtn></button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Pool Name</span>
+                        <input type="text" class="form-control" formControlName="name" placeholder="Pool Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label text-black">Image</label>
+                        <!-- <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder"> -->
+                        <input type="file" class="form-control" accept="image/png, image/jpeg" (change)="selectImageFromBrowser($event)" #fileUploadInputImage>
+                        <!-- <input type="file" class="form-control" formControlName="image"> -->
+                      </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Description</span>
+                        <input type="text" class="form-control" formControlName="description" placeholder="Description">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Total Supply</span>
+                        <input type="number" class="form-control" formControlName="totalSupply" placeholder="Total Supply">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Status</span>
+                        <select class="form-select" formControlName="status">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+
+                    <div class="mb3">
+                        <div id="emailHelp" class="form-text">Unicamente Administrador</div>
+                        <button class="btn btn-sm btn-primary" type="submit" [disabled]="!this.form.valid">
+                            Store
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
