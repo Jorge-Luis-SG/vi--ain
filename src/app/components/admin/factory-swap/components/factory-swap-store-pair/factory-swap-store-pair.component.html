@@ -1,0 +1,90 @@
+<div class="modal fade" id="modalStorePair" tabindex="-1" aria-labelledby="modalStorePairLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header text-dark">
+                <h3 class="text-center">Añadir nuevo Pair</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModalBtn></button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="storePair(form.value)">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Price</span>
+                        <input type="text" class="form-control" formControlName="price" placeholder="Price" autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Token A</span>
+                        <input type="text" class="form-control" formControlName="tokenA" placeholder="Token A Address"
+                            autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Decimal Token A</span>
+                        <input type="number" class="form-control" formControlName="decimalTokenA" placeholder="Decimal Token A"
+                            autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Token B</span>
+                        <input type="text" class="form-control" formControlName="tokenB" placeholder="Token B Address"
+                            autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Decimal Token B</span>
+                        <input type="number" class="form-control" formControlName="decimalTokenB" placeholder="Decimal Token B"
+                            autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Amount for token</span>
+                        <input type="number" class="form-control" formControlName="amountForTokens" placeholder="Amount for tokens"
+                            autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Fee</span>
+                        <input type="number" class="form-control" formControlName="fee" placeholder="Fee" autocomplete="off">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Active Oracle</span>
+                        <select class="form-select" formControlName="activeOracle" placeholder="activeOracle">
+                            <option value="false">No</option>
+                            <option value="true" selected>Yes</option>
+                        </select>
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Address Oracle</span>
+                        <input type="text" class="form-control" formControlName="addressOracle" placeholder="addressOracle">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Oracle Decimal</span>
+                        <input type="text" class="form-control" formControlName="addressDecimalOracle"
+                            placeholder="addressDecimalOracle" mask="separator.0" thousandSeparator=".">
+                    </div>
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Is Native</span>
+                        <select class="form-select" formControlName="isNative" placeholder="isNative">
+                            <option value="false" selected>No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+                
+                    <div class="mb-3">
+                        <button class="btn btn-sm btn-primary" type="submit" [disabled]="!this.form.valid">
+                            Store
+                        </button>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
