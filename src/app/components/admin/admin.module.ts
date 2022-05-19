@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { FactorySwapComponent } from './factory-swap/factory-swap.component';
 import { FactorySwapUpdatePairComponent } from './factory-swap-update-pair/factory-swap-update-pair.component';
-import { BalanceOfContractEtherComponent } from './balance-of-contract-ether/balance-of-contract-ether.component';
 import { SecurityModule } from './security/security.module';
 import { ContractModule } from './contract/contract.module';
 
@@ -17,7 +16,6 @@ import { ContractModule } from './contract/contract.module';
     DashboardComponent,
     FactorySwapComponent,
     FactorySwapUpdatePairComponent,
-    BalanceOfContractEtherComponent,
   ],
   imports: [
     CommonModule,
