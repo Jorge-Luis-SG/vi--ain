@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-withdraw-matic-owner',
@@ -11,22 +12,24 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 export class WithdrawMaticOwnerComponent implements OnInit {
 
   public form: FormGroup;
-  submitted = false;
+  public submitted = false;
+  public nativeToken = environment.chain.nativeCurrency.name;
+
+
   constructor(
     public fb: FormBuilder,
     public contractService: ContractService,
     public sweetalert2Service: Sweetalert2Service,
   ) {
     this.form = fb.group({
-      value: [0, Validators.required],
+      value: [0, [Validators.required, Validators.min(0)]],
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   // @dev - Set a new Buy limit
-  async withdrawMaticOwner() {
+  async onSubmit() {
     this.submitted = true;
     const _data = this.form.value;
     console.warn("_data", _data)

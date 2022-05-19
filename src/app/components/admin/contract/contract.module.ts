@@ -12,6 +12,7 @@ import { BurnComponent } from './components/burn/burn.component';
 import { MintComponent } from './components/mint/mint.component';
 import { TransferOwnershipComponent } from './components/transfer-ownership/transfer-ownership.component';
 import { SetVaultAddressComponent } from './components/set-vault-address/set-vault-address.component';
+import { WithdrawMaticOwnerComponent } from './components/withdraw-matic-owner/withdraw-matic-owner.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { SetVaultAddressComponent } from './components/set-vault-address/set-vau
     MintComponent,
     TransferOwnershipComponent,
     SetVaultAddressComponent,
+    WithdrawMaticOwnerComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,29 @@
+<div class="card">
+    <h5 class="card-header">
+        Withdrawal
+    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            Withdraw {{nativeToken | uppercase}} token owner
+        </h5>
+        <p class="card-text">
+            Retirar tokens
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="value" class="form-control" placeholder="Amount">
+                <label for="floatingInput">
+                    Amount
+                </label>
+              </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                    {{'retirar' | titlecase}}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
