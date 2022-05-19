@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./contract/contract-routing.module').then(m => m.ContractRoutingModule)
   },
   {
+    path: 'factory-swap',
+    loadChildren: () => import('./factory-swap/factory-swap-routing.module').then(m => m.FactorySwapRoutingModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/admin/dashboard'
