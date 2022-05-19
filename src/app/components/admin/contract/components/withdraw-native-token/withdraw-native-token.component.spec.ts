@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WithdrawMaticOwnerComponent } from './withdraw-matic-owner.component';
+import { WithdrawNativeTokenComponent } from './withdraw-native-token.component';
 
 describe('WithdrawMaticOwnerComponent', () => {
-  let component: WithdrawMaticOwnerComponent;
-  let fixture: ComponentFixture<WithdrawMaticOwnerComponent>;
+  let component: WithdrawNativeTokenComponent;
+  let fixture: ComponentFixture<WithdrawNativeTokenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithdrawMaticOwnerComponent ]
+      declarations: [ WithdrawNativeTokenComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WithdrawMaticOwnerComponent);
+    fixture = TestBed.createComponent(WithdrawNativeTokenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

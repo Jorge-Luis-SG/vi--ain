@@ -12,8 +12,8 @@ import { BurnComponent } from './components/burn/burn.component';
 import { MintComponent } from './components/mint/mint.component';
 import { TransferOwnershipComponent } from './components/transfer-ownership/transfer-ownership.component';
 import { SetVaultAddressComponent } from './components/set-vault-address/set-vault-address.component';
-import { WithdrawMaticOwnerComponent } from './components/withdraw-matic-owner/withdraw-matic-owner.component';
 import { WithdrawTokenOnwerComponent } from './components/withdraw-token-onwer/withdraw-token-onwer.component';
+import { WithdrawNativeTokenComponent } from './components/withdraw-native-token/withdraw-native-token.component';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { WithdrawTokenOnwerComponent } from './components/withdraw-token-onwer/w
     MintComponent,
     TransferOwnershipComponent,
     SetVaultAddressComponent,
-    WithdrawMaticOwnerComponent,
+    WithdrawNativeTokenComponent,
     WithdrawTokenOnwerComponent,
   ],
   imports: [

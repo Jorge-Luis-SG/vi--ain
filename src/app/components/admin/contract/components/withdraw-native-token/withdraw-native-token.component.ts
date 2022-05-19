@@ -5,11 +5,11 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-withdraw-matic-owner',
-  templateUrl: './withdraw-matic-owner.component.html',
-  styleUrls: ['./withdraw-matic-owner.component.css']
+  selector: 'app-withdraw-native-token',
+  templateUrl: './withdraw-native-token.component.html',
+  styleUrls: ['./withdraw-native-token.component.css']
 })
-export class WithdrawMaticOwnerComponent implements OnInit {
+export class WithdrawNativeTokenComponent implements OnInit {
 
   public form: FormGroup;
   public submitted = false;
