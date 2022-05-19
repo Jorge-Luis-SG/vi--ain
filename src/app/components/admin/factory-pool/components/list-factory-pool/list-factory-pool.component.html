@@ -1,0 +1,84 @@
+<section class="jumbotron text-center mysection">
+    <div class="container ">
+        <h1 class="jumbotron-heading text-dark mytext">Pool</h1>
+    </div>
+</section>
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="card">
+
+            <div class="card-header">
+                <div class="hstack gap-2">
+                    <h2 class="border">Factory Pool</h2>
+
+                    <div class="vr"></div>
+                    <button type="button" class="ms-auto border btn btn-sm btn-outline-primary"
+                        data-bs-toggle="modal" data-bs-target="#modalStorePool">Add</button>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">name</th>
+                                <th scope="col">image</th>
+                                <th scope="col">description</th>
+                                <th scope="col">totalSupply</th>
+                                <th scope="col">status</th>
+                                <th scope="col">Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <ng-container *ngIf="(poolList$ | async) as poolList; else loading">
+
+                                <ng-container *ngIf="poolList.length > 0; else noPool">
+                                    <tr *ngFor="let item of poolList; index as idx">
+                                        <td class="text-center">{{ idx + 1 }}</td>
+                                        <td class="text-center">{{ item.name }}</td>
+                                        <td class="text-center">{{ item.image }}</td>
+                                        <td class="text-center">{{ item.description }}</td>
+                                        <td class="text-center">{{ item.totalSupply }}</td>
+                                        <td class="text-center">{{ item.status }}</td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalUpdatePool" (click)="toUpdate = item">
+                                                Update
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+
+                                <ng-template #noPool>
+                                    <tr>
+                                        <td class="text-center" colspan="7">
+                                             No se encontraton pools registradas.
+                                        </td>
+                                    </tr>
+                                </ng-template>
+
+                            </ng-container>
+
+                            <ng-template #loading>
+                                <tr>
+                                    <td class="text-center" colspan="7">
+                                        Cargando...
+                                    </td>
+                                </tr>
+                            </ng-template>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<app-factory-pool-store></app-factory-pool-store>
+
+<app-factory-pool-update [pool]="toUpdate"></app-factory-pool-update>

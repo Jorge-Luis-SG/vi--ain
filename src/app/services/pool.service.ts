@@ -40,6 +40,7 @@ export class PoolService {
    * 
    * @returns 
    */
+  getDynamic(where: any[] = [], opts: any = {}) {
   // getDynamic(where: any[] = [], opts: any = {}): Observable<any>{
   //   const {idField = "_id", orderBy = []} = opts;
 
@@ -53,5 +54,5 @@ export class PoolService {
   //       return query;
   //     }
   //   ).valueChanges({ idField });
-  // }
+  }
 }

@@ -8,6 +8,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { FactoryPoolStoreComponent } from './components/factory-pool-store/factory-pool-store.component';
 import { FactoryPoolUpdateComponent } from './components/factory-pool-update/factory-pool-update.component';
+import { ListFactoryPoolComponent } from './components/list-factory-pool/list-factory-pool.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FactoryPoolUpdateComponent } from './components/factory-pool-update/fac
     FactoryPoolComponent,
     FactoryPoolStoreComponent,
     FactoryPoolUpdateComponent,
+    ListFactoryPoolComponent,
   ],
   imports: [
     CommonModule,
