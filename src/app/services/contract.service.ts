@@ -1488,12 +1488,12 @@ export class ContractService {
       if(callType === 'send'){
 
         const [ account ] = this.accounts;
+        optionals.from = account;
 
         const gasFee = await contractMethod.estimateGas( optionals );
         console.log("gas", gasFee);
 
         optionals.gas = gasFee;
-        optionals.from = account;
       }
 
       const result = await contractMethod[callType]( optionals );
@@ -1549,12 +1549,12 @@ export class ContractService {
       if(callType === 'send'){
 
         const [ account ] = this.accounts;
+        optionals.from = account;
 
         const gasFee = await contractMethod.estimateGas( optionals );
         console.log("gas", gasFee);
 
         optionals.gas = gasFee;
-        optionals.from = account;
       }
 
       const result = await contractMethod[callType]( optionals );
