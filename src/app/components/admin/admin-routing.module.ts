@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckWeb3ConnectionGuard } from 'src/app/guards/check-web3-connection.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'factory-swap',
+    // canActivate: [ CheckWeb3ConnectionGuard ],
     loadChildren: () => import('./factory-swap/factory-swap-routing.module').then(m => m.FactorySwapRoutingModule)
   },
   {
