@@ -567,61 +567,8 @@ export class ContractService {
   }
 
 
-  /**
-   * @name approveAll
-   * @description                       NFT's
-   * @param addresstoken 
-   * @param contractAddress 
-   * @returns 
-   */
-  async approveAll(addresstoken, contractAddress) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const contract: any = await this.abiService.getABIByUrl(this.erc721ABI);
-        console.log("contract", contract[49])
-        let accounts = this.accounts[0]
-        //@dev cargamos la abi de contracto secundarios con el metodo approve
-        let utoken: any = this.getAbiContract([contract[49]], addresstoken)
-        //@dev ejecutamos la llamada a la funcion en el contract
-        let result = await utoken.methods.setApprovalForAll(contractAddress, true).send({ from: accounts })
-        resolve(result)
-      } catch (err) {
-        console.log("error", err)
-        resolve(false)
-      }
-    })
-  }
 
 
-  /**
-   * @name isApprovedForAll
-   * @description                           NTF's
-   * @param addresstoken 
-   * @param contractAddress 
-   * @returns 
-   */
-  async isApprovedForAll(addresstoken, contractAddress) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const contract: any = await this.abiService.getABIByUrl(this.erc721ABI);
-        console.log("contract", contract[30])
-        let accounts = this.accounts[0]
-
-        console.log("addresstoken", addresstoken)
-        console.log("contractAddress", contractAddress)
-
-
-        //@dev cargamos la abi de contracto secundarios con el metodo approve
-        let utoken: any = this.getAbiContract([contract[30]], addresstoken)
-        //@dev ejecutamos la llamada a la funcion en el contract
-        let result = await utoken.methods.isApprovedForAll(accounts, contractAddress).call({ from: accounts })
-        resolve(result)
-      } catch (err) {
-        console.log("error", err)
-        resolve(false)
-      }
-    })
-  }
 
 
   /**
@@ -754,6 +701,51 @@ export class ContractService {
     this.accountStatusSource.next(null)
     this.dataStatusSource.next(null)
     window.location.reload()
+  }
+
+
+
+
+  /* =======================================================
+   *                         NFT ERC721   
+   * ===================================================== */
+
+
+  /**
+   * @name approveAll
+   * @description                       NFT's
+   * @param addresstoken 
+   * @param contractAddress 
+   * @returns 
+   */
+   async approveAllNFT(addresstoken: string, contractAddress: string) {
+    return await this.calculateAndCallCustomABI({
+      contractAddress: addresstoken,
+      method: 'setApprovalForAll',
+      params: [contractAddress],
+      callType: 'send',
+      optionals: null,
+      urlABI: this.erc721ABIf
+    });
+  }
+
+
+  /**
+   * @name isApprovedForAll
+   * @description                           NTF's
+   * @param addresstoken 
+   * @param contractAddress 
+   * @returns 
+   */
+   async isApprovedForAll(addresstoken, contractAddress) {
+    return await this.calculateAndCallCustomABI({
+      contractAddress: addresstoken,
+      method: 'isApprovedForAll',
+      params: [addresstoken, contractAddress],
+      callType: 'call',
+      optionals: null,
+      urlABI: this.erc721ABIf
+    });
   }
 
 
