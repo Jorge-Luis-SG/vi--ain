@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContractService } from 'src/app/services/contract.service';
 
 @Component({
   selector: 'app-contract',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private contractSrv: ContractService
+  ) {
+    this.contractSrv.reInitializating();
+  }
 
   ngOnInit(): void {
   }
