@@ -9,7 +9,7 @@ import { FactorySwapUpdatePairComponent } from '../factory-swap-update-pair/fact
 })
 export class ListFactorySwapComponent implements OnInit {
 
-  @ViewChild('closeUpdateModalBtn', {read: ElementRef}) closeUpdateModalBtn!: ElementRef<HTMLButtonElement>;
+  // @ViewChild('closeUpdateModalBtn', {read: ElementRef}) closeUpdateModalBtn!: ElementRef<HTMLButtonElement>;
   @ViewChild(FactorySwapUpdatePairComponent) updateForm!: FactorySwapUpdatePairComponent;
 
   public submitted = false;
@@ -56,7 +56,7 @@ export class ListFactorySwapComponent implements OnInit {
   }
 
   onUpdateCall(){
-    this.closeUpdateModalBtn.nativeElement.click();
+    // this.closeUpdateModalBtn.nativeElement.click();
     this.loadPairList();
     // this.toUpdate = null;
   }

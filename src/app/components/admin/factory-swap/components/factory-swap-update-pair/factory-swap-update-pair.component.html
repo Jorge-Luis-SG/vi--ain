@@ -98,6 +98,16 @@
                         <button class="btn btn-outline-secondary" type="button" [disabled]="f.isNative.errors"
                             (click)="updatePair('isNative')">Update</button>
                     </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Status</span>
+                        <select class="form-select" formControlName="active" placeholder="Pair Status">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                        <button class="btn btn-outline-secondary" type="button" [disabled]="f.isNative.errors"
+                            (click)="updatePair('active')">Update</button>
+                    </div>
                 
                 </form>
             </div>

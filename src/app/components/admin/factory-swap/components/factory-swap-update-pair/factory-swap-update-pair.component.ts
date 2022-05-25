@@ -15,6 +15,7 @@ export class FactorySwapUpdatePairComponent implements OnInit {
 
   @Input() pair: any;
   @Output() onUpdate = new Subject();
+
   public form!: FormGroup;
 
   constructor(
@@ -25,7 +26,6 @@ export class FactorySwapUpdatePairComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // console.log('pair', this.pair);
     this.buildForm();
   }
 
@@ -42,6 +42,7 @@ export class FactorySwapUpdatePairComponent implements OnInit {
       addressOracle: [this.pair?.addressOracle, [Validators.required]],
       addressDecimalOracle: [this.pair?.addressDecimalOracle, [Validators.required]],
       isNative: [this.pair?.isNative || false, [Validators.required]],
+      active: [this.pair?.active || false, [Validators.required]],
     });
   }
 
@@ -53,12 +54,6 @@ export class FactorySwapUpdatePairComponent implements OnInit {
     this.buildForm();
   }
 
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   const { pair } = changes;
-  //   console.log(changes);
-  //   this.pair = pair.currentValue;
-  //   this.buildForm();
-  // }
 
   async updatePair(field: string){
     try {
@@ -122,11 +117,16 @@ export class FactorySwapUpdatePairComponent implements OnInit {
           toUpdate.type = 10;
           break;
 
-        case 'isNative':
-          toUpdate.bool = this.f.isNative.value;
+        case 'active':
+          toUpdate.bool = (this.f.active.value === 'true');
           toUpdate.type = 11;
           break;
-      
+
+        case 'isNative':
+          toUpdate.bool = (this.f.isNative.value === 'true');
+          toUpdate.type = 12;
+          break;
+    
         default:
           console.log('Not handler');
           return;
@@ -136,7 +136,6 @@ export class FactorySwapUpdatePairComponent implements OnInit {
 
       await this.contractSrv.pairChange( Object.values(toUpdate) );
 
-      this.form.reset();
       this.onUpdate.next();
 
       return this.sweetAlertSrv.showSuccess('Transacción exitosa', 0);
