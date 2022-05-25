@@ -68,7 +68,7 @@ export class FactorySwapStorePairComponent implements OnInit {
 
       await this.contractSrv.registerPair( Object.values(data) );
 
-      this.form.reset();
+      this.reloadForm();
       this.closeModalBtn.nativeElement.click();
 
       return this.sweetAlertSrv.showSuccess('Transacción exitosa', 0);
@@ -77,5 +77,11 @@ export class FactorySwapStorePairComponent implements OnInit {
     }finally{
       this.spinner.hide();
     }
+  }
+
+
+  reloadForm(){
+    this.form.reset();
+    this.buildForm();
   }
 }
