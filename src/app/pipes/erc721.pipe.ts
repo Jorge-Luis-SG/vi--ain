@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ContractService } from '../services/contract.service';
 
 @Pipe({
-  name: 'erc20'
+  name: 'erc721'
 })
-export class Erc20Pipe implements PipeTransform {
+export class Erc721Pipe implements PipeTransform {
 
   constructor(
     private contractSrv: ContractService,
@@ -16,9 +16,8 @@ export class Erc20Pipe implements PipeTransform {
       method: field,
       callType: 'call',
       optionals: null,
-      urlABI: this.contractSrv.erc20ABI
+      urlABI: this.contractSrv.erc721ABIf
     });
-    // return await this.contractSrv.getMethod(address, field, this.contractSrv.erc20ABI);
   }
 
 }
