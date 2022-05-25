@@ -103,4 +103,31 @@ export class Sweetalert2Service {
 
     return isConfirmed;
   }
+
+
+  /**
+   * Launche alert like toast
+   * @param message 
+   * @param type 
+   * @returns 
+   */
+  public showToast(message: string, type: any = 'success'){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      },
+      customClass: {
+        htmlContainer: 'applef sw2FixHtmlContainer',
+        icon: 'sw2FixIcon',
+      }
+    });
+    
+    return Toast.fire({ icon: 'success', title: message })
+  }
 }
