@@ -11,7 +11,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
   templateUrl: './factory-swap-update-pair.component.html',
   styleUrls: ['./factory-swap-update-pair.component.css']
 })
-export class FactorySwapUpdatePairComponent implements OnInit, OnChanges {
+export class FactorySwapUpdatePairComponent implements OnInit {
 
   @Input() pair: any;
   @Output() onUpdate = new Subject();
@@ -25,7 +25,7 @@ export class FactorySwapUpdatePairComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    console.log('pair', this.pair);
+    // console.log('pair', this.pair);
     this.buildForm();
   }
 
@@ -47,12 +47,18 @@ export class FactorySwapUpdatePairComponent implements OnInit, OnChanges {
 
   get f(){ return this.form.controls; }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const { pair } = changes;
-    console.log(changes);
-    this.pair = pair.currentValue;
+
+  onSelectPairToUpdate(item: any){
+    this.pair = item;
     this.buildForm();
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   const { pair } = changes;
+  //   console.log(changes);
+  //   this.pair = pair.currentValue;
+  //   this.buildForm();
+  // }
 
   async updatePair(field: string){
     try {

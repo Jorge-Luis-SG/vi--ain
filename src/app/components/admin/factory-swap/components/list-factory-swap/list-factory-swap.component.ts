@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ContractService } from 'src/app/services/contract.service';
+import { FactorySwapUpdatePairComponent } from '../factory-swap-update-pair/factory-swap-update-pair.component';
 
 @Component({
   selector: 'app-list-factory-swap',
@@ -9,6 +10,7 @@ import { ContractService } from 'src/app/services/contract.service';
 export class ListFactorySwapComponent implements OnInit {
 
   @ViewChild('closeUpdateModalBtn', {read: ElementRef}) closeUpdateModalBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild(FactorySwapUpdatePairComponent) updateForm!: FactorySwapUpdatePairComponent;
 
   public submitted = false;
   public accountStatus: any;
@@ -48,11 +50,15 @@ export class ListFactorySwapComponent implements OnInit {
    */
   onStorePair(){ this.loadPairList(); }
 
-  updatePair(item: any){  this.toUpdate = item; }
+  updatePair(item: any){
+    // this.toUpdate = item;
+    this.updateForm.onSelectPairToUpdate(item);
+  }
 
   onUpdateCall(){
     this.closeUpdateModalBtn.nativeElement.click();
-    this.toUpdate = null;
+    this.loadPairList();
+    // this.toUpdate = null;
   }
 
 }
