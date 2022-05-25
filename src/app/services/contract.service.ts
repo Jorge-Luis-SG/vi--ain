@@ -153,7 +153,7 @@ export class ContractService {
    * @returns 
    */
   async getTokenInfo(pair: any, pairKey: string, isNative = false){
-
+  
     const contract = `token${pairKey}`;
     const decimal = `decimalToken${pairKey}`;
 
@@ -177,14 +177,14 @@ export class ContractService {
       symbol,
     ] = await Promise.all([
       this.calculateAndCallCustomABI({
-        contractAddress: contract,
+        contractAddress: pair[contract],
         method: 'name',
         params: null,
         callType: 'call',
         urlABI: this.erc20ABI
       }),
       this.calculateAndCallCustomABI({
-        contractAddress: contract,
+        contractAddress: pair[contract],
         method: 'symbol',
         params: null,
         callType: 'call',
