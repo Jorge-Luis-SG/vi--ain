@@ -40,6 +40,7 @@ export class ContractService {
   public timeLockedWalletABI = '/assets/abi/erc20.TimeLockedWallet.json';
   public erc20ABI = '/assets/abi/erc20.json';
   public erc721ABI = '/assets/abi/erc721.json';
+  public erc721ABIf = '/assets/abi/erc721f.json';
   public waitForTransactions = 12000;
 
   constructor(
