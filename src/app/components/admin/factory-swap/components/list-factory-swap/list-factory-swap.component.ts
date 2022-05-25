@@ -24,24 +24,29 @@ export class ListFactorySwapComponent implements OnInit {
     this.loadPairList();
   }
 
+
+  /**
+   * Cargar listado de pairs registrados para hacer swap
+   */
   async loadPairList(){
     const pairList: any = await this.contractService.pairList();
     const toFormat: any[] = [];
 
-    // console.log({pairList});
 
     for (const [idx, entry] of Object.entries(pairList)) {
       const row: any = entry;
-
-      if(row[11]){
-        toFormat.push( this.contractService.getTokenName(row, idx) );
-      }
+      toFormat.push( this.contractService.getTokenName(row, idx) );
     }
 
     const result = await Promise.all( toFormat );
-    // console.log({result});
-    this.pairList = result.filter((row) => !row.isNative)
+    this.pairList = result;
   }
+
+
+  /**
+   * Evento al registrar un nuevo pair refrescar listado
+   */
+  onStorePair(){ this.loadPairList(); }
 
   updatePair(item: any){  this.toUpdate = item; }
 
