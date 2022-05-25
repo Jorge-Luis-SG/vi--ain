@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     public contractService: ContractService,
     public commonService: CommonService,
   ) {
-    // this.contractService.connectAccount()
+    this.contractService.reInitializating()
     // this.contractService.dataStatus$.subscribe(res => {
     //   if (!res) { return }
     //   this.accountStatus = res;
