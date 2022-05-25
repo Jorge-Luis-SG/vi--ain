@@ -4,77 +4,66 @@
 
             <div class="modal-header text-dark">
                 <h3 class="text-center">Añadir nuevo Pair</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModalBtn></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeModalBtn (click)="reloadForm()"></button>
             </div>
 
             <div class="modal-body">
                 <form [formGroup]="form" (ngSubmit)="storePair(form.value)">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Price</span>
-                        <input type="text" class="form-control" formControlName="price" placeholder="Price" autocomplete="off">
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="price" placeholder="Price" mask="separetor.0" thousandSeparator="." autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Price</label>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="tokenA" placeholder="Token A Address" autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Token A Address</label>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="tokenB" placeholder="Token B Address" autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Token B Address</label>
                     </div>
                 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Token A</span>
-                        <input type="text" class="form-control" formControlName="tokenA" placeholder="Token A Address"
-                            autocomplete="off">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="amountForTokens" placeholder="Amount for token" mask="separetor.0" thousandSeparator="." autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Amount for token</label>
                     </div>
                 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Decimal Token A</span>
-                        <input type="number" class="form-control" formControlName="decimalTokenA" placeholder="Decimal Token A"
-                            autocomplete="off">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="fee" placeholder="Fee" mask="separetor.0" thousandSeparator="." autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Fee</label>
                     </div>
                 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Token B</span>
-                        <input type="text" class="form-control" formControlName="tokenB" placeholder="Token B Address"
-                            autocomplete="off">
-                    </div>
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Decimal Token B</span>
-                        <input type="number" class="form-control" formControlName="decimalTokenB" placeholder="Decimal Token B"
-                            autocomplete="off">
-                    </div>
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Amount for token</span>
-                        <input type="number" class="form-control" formControlName="amountForTokens" placeholder="Amount for tokens"
-                            autocomplete="off">
-                    </div>
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Fee</span>
-                        <input type="number" class="form-control" formControlName="fee" placeholder="Fee" autocomplete="off">
-                    </div>
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Active Oracle</span>
-                        <select class="form-select" formControlName="activeOracle" placeholder="activeOracle">
-                            <option value="false">No</option>
-                            <option value="true" selected>Yes</option>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" formControlName="activeOracle" aria-label="Select Oracle Status">
+                            <option [value]="true">Enable</option>
+                            <option [value]="false">Disable</option>
                         </select>
+                        <label class="text-dark" for="activeOracle">Active Oracle</label>
                     </div>
                 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Address Oracle</span>
-                        <input type="text" class="form-control" formControlName="addressOracle" placeholder="addressOracle">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" formControlName="addressOracle" placeholder="Address Oracle" autocomplete="off">
+                        <label class="text-dark" for="contractAddress">Address Oracle</label>
                     </div>
                 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Oracle Decimal</span>
-                        <input type="text" class="form-control" formControlName="addressDecimalOracle"
-                            placeholder="addressDecimalOracle" mask="separator.0" thousandSeparator=".">
-                    </div>
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Is Native</span>
-                        <select class="form-select" formControlName="isNative" placeholder="isNative">
-                            <option value="false" selected>No</option>
-                            <option value="true">Yes</option>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" formControlName="isNative" aria-label="Token Native">
+                            <option [value]="true">Yes</option>
+                            <option [value]="false">No</option>
                         </select>
+                        <label class="text-dark" for="isNative">Is Native</label>
                     </div>
+                
                 
                     <div class="mb-3">
                         <button class="btn btn-sm btn-primary" type="submit" [disabled]="!this.form.valid">

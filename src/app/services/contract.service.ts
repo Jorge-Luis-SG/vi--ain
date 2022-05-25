@@ -1545,13 +1545,13 @@ export class ContractService {
         optionals.from = account;
 
         const gasFee = await contractMethod.estimateGas( optionals );
-        console.log("gas", gasFee);
+        // console.log("gas", gasFee);
 
         optionals.gas = gasFee;
       }
 
       const result = await contractMethod[callType]( optionals );
-      console.log("result", result);
+      // console.log("result", result);
 
       return result;
 

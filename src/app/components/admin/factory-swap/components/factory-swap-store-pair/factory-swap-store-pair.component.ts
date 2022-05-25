@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Subject } from 'rxjs';
+import { toBasicPoint, toWei } from 'src/app/helpers/utils';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 
@@ -12,6 +14,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 export class FactorySwapStorePairComponent implements OnInit {
 
   @ViewChild('closeModalBtn', {read: ElementRef}) closeModalBtn!: ElementRef<HTMLButtonElement>;
+  @Output() onStoreEvent = new Subject();
 
   public form!: FormGroup;
 
@@ -30,15 +33,16 @@ export class FactorySwapStorePairComponent implements OnInit {
     this.form = this.fb.group({
       price: [ '', [Validators.required, Validators.min(1)]],
       tokenA: [ '', [Validators.required]],
-      decimalTokenA: [ 18, [Validators.required, Validators.min(1)]],
+      decimalTokenA: 18,
       tokenB: [ '', [Validators.required]],
-      decimalTokenB: [ 18, [Validators.required, Validators.min(1)]],
+      decimalTokenB: 18,
       amountForTokens: [ '', [Validators.required]],
-      fee: [ 0, [Validators.required]],
+      fee: [ 0, [Validators.required, Validators.min(0)]],
       activeOracle: [ false, [Validators.required]],
-      addressOracle: [ '', [Validators.required]],
-      addressDecimalOracle: [ 18, [Validators.required, Validators.min(1)]],
+      addressOracle: [ '0x000000000000000000000000000000000000dead', [Validators.required]],
+      addressDecimalOracle: 18,
       isNative: [ false, [Validators.required]],
+      active: true,
     });
   }
 
@@ -49,27 +53,75 @@ export class FactorySwapStorePairComponent implements OnInit {
     if(this.form.invalid){ return; }
 
     try {
+
+      /** Pedir confirmación */
+      const ask = await this.sweetAlertSrv.askConfirm('Store pair?');
+      if(!ask){ return; }
+
+      await this.spinner.show();
+
+
+      /**
+       * Obtener información de los decimales de los tokens A y B
+       */
+      const [
+        tokenADecimal,
+        tokenBDecimal
+      ] = await Promise.all([
+        this.contractSrv.calculateAndCallCustomABI({
+          contractAddress: formData.tokenA,
+          method: 'decimals',
+          params: null,
+          callType: 'call',
+          urlABI: this.contractSrv.erc20ABI
+        }),
+        this.contractSrv.calculateAndCallCustomABI({
+          contractAddress: formData.tokenB,
+          method: 'decimals',
+          params: null,
+          callType: 'call',
+          urlABI: this.contractSrv.erc20ABI
+        }),
+      ])
+      formData.decimalTokenA = Number(tokenADecimal);
+      formData.decimalTokenB = Number(tokenBDecimal);
+
+
+      /**
+       * Si se ingresa y activa un oraculo
+       * - Buscar cantidad de decimales del token del oraculo
+       */
+      if(formData.activeOracle){
+        const oracleDecimals = await this.contractSrv.calculateAndCallCustomABI({
+          contractAddress: formData.addressOracle,
+          method: 'decimals',
+          params: null,
+          callType: 'call',
+          urlABI: this.contractSrv.erc20ABI
+        });
+        formData.addressDecimalOracle = oracleDecimals;
+      }
+
       const data = {
         isNative: formData.isNative,
-        price: formData.price,
+        price: toWei(formData.price, 18),
         tokenA: formData.tokenA,
         decimalTokenA: formData.decimalTokenA,
         tokenB: formData.tokenB,
         decimalTokenB: formData.decimalTokenB,
         amountForTokens: formData.amountForTokens,
-        fee: formData.fee,
+        fee: toBasicPoint(formData.fee),
         activeOracle: formData.activeOracle,
         addressOracle: formData.addressOracle,
         addressDecimalOracle: formData.addressDecimalOracle,
         active: formData.active
       }
 
-      await this.spinner.show();
-
       await this.contractSrv.registerPair( Object.values(data) );
 
-      this.reloadForm();
       this.closeModalBtn.nativeElement.click();
+      this.reloadForm();
+      this.onStoreEvent.next();
 
       return this.sweetAlertSrv.showSuccess('Transacción exitosa', 0);
     } catch (err) {
