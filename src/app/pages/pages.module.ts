@@ -5,13 +5,18 @@ import { NftComponent } from './nft/nft.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PagesRoutingModule } from './pages-routing.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     MarketplaceComponent,
-    NftComponent],
+    NftComponent,
+    NavBarComponent,
+    FooterComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
