@@ -5,39 +5,42 @@
 
 export const environment = {
   production: false,
+  projectName: "KANNABIS CITY",
   API_URL: '#',
   urlWeb: '#',
   configUrlAbi: "/assets/abi/DevToken.json",
-  contractAddress: "####",
+  contractAddress: "0xF9B0fA1A4682ED93FF439adee1917ef1DE587285",
   infuraId: "#",
   urlTokenLogo: "#",
   mainToken: {
+    contract: "0xB735eb7f14E223e36aDFB6e9b8fD55797792a351",
     name: "DAPP TEST",
     symbol: "DPPT",
-    decimals: "18",
+    decimals: 18,
   },
+  nftCollectionContract: "0x9C43Faac179b6b6EF601d260Cc6aa2fc7604e20B",
   chain: {
 
     // Testnet
-    chainId: 80001,
-    chainIdMetamask: "0x13881",
-    chainName: "Polygon Testnet",
-    rpc: "https://polygon-mumbai.infura.io/v3/",
-    rpcUrls: ["https://matic-mumbai.chainstacklabs.com"],
-    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+    chainId: 97,
+    chainIdMetamask: "0x61",
+    chainName: "BNB Smart Chain Testnet",
+    rpc: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
+    blockExplorerUrls: ["https://testnet.bscscan.com/"],
 
     // Mainnnet 
-    // chainId: 137,
-    // chainIdMetamask: "0X89",
-    // chainName: "Polygon Mainnet",
-    // rpc: "https://polygon-mainnet.infura.io/v3/",
-    // rpcUrls: ["https://rpc-mainnet.maticvigil.com/"],
-    // blockExplorerUrls: ["https://polygonscan.com/"],
+    // chainId: 56,
+    // chainIdMetamask: "0X38",
+    // chainName: "BNB Smart Chain Mainnet",
+    // rpc: "https://bsc-dataseed1.binance.org/",
+    // rpcUrls: ["https://bsc-dataseed1.binance.org/"],
+    // blockExplorerUrls: ["https://bscscan.com/"],
 
     nativeCurrency: {
-      name: "Polygon",
-      symbol: "MATIC",
-      decimals: "18",
+      name: "BNB",
+      symbol: "BNB",
+      decimals: 18,
     },
   },
 };

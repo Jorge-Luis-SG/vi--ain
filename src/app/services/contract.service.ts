@@ -96,6 +96,7 @@ export class ContractService {
     this.web3js = new Web3(this.provider); // create web3 instance
     this.accounts = await this.web3js.eth.getAccounts();
 
+
     this.checkNetwork();
 
     this.eventsAll()
@@ -119,10 +120,10 @@ export class ContractService {
     let token_abi: any = await this.abiService.getABI()
 
     let token_address = environment.contractAddress;
-    // console.log("token_address", token_address)
+    console.log("token_address", token_address)
 
     this.uToken = new this.web3js.eth.Contract(token_abi, token_address);
-    // console.log("uToken", this.uToken.methods)
+    console.log("uToken", this.uToken.methods)
 
     this.checkNetwork();
 
@@ -152,8 +153,8 @@ export class ContractService {
    * @param isNative          Identificador si el token es nativo
    * @returns 
    */
-  async getTokenInfo(pair: any, pairKey: string, isNative = false){
-  
+  async getTokenInfo(pair: any, pairKey: string, isNative = false) {
+
     const contract = `token${pairKey}`;
     const decimal = `decimalToken${pairKey}`;
 
@@ -161,8 +162,8 @@ export class ContractService {
      * Si el token es nativo
      * - Retorna arreglo formateado con valores por defecto
      */
-    if(isNative){
-      
+    if (isNative) {
+
       return {
         contract: pair[contract],
         name: environment.chain.nativeCurrency.name,
@@ -240,7 +241,7 @@ export class ContractService {
    * Obtener información de la wallet del usuario
    * @returns 
    */
-  async getUserData(){
+  async getUserData() {
     const accounts = this.accounts[0];
     const contractAddress = environment.contractAddress;
 
@@ -338,7 +339,7 @@ export class ContractService {
         //   data.name = infoToken._name
         // }
         // data.balanceOf = await this._method("balanceOf", 'methods', this.accounts[0]);
-        // data.accounts = this.accounts[0]
+        data.accounts = this.accounts[0]
 
         // data.getPreSaleCommission = await this._method("getPreSaleCommission", 'methods')
         // data.getOwner = await this._method("getOwner", 'methods')
@@ -360,7 +361,7 @@ export class ContractService {
         }
 
 
-        // console.log({data});
+        console.log({ data });
         this.spinner.hide();
 
         resolve('ok')
@@ -718,7 +719,7 @@ export class ContractService {
    * @param contractAddress 
    * @returns 
    */
-   async approveAllNFT(addresstoken: string, contractAddress: string) {
+  async approveAllNFT(addresstoken: string, contractAddress: string) {
     return await this.calculateAndCallCustomABI({
       contractAddress: addresstoken,
       method: 'setApprovalForAll',
@@ -737,7 +738,7 @@ export class ContractService {
    * @param contractAddress 
    * @returns 
    */
-   async isApprovedForAll(addresstoken, contractAddress) {
+  async isApprovedForAll(addresstoken, contractAddress) {
     return await this.calculateAndCallCustomABI({
       contractAddress: addresstoken,
       method: 'isApprovedForAll',
@@ -759,7 +760,7 @@ export class ContractService {
    * @name withdrawMaticOwner
    * @param amount 
    */
-   async withdrawMaticOwner(amount) {
+  async withdrawMaticOwner(amount) {
     return await this.calculateAndCall('withdrawMaticOwner', [amount], 'send');
   }
 
@@ -887,9 +888,9 @@ export class ContractService {
    * @name isAdmin
    * @returns 
    */
-  async isAdmin(){
-    const [ account ] = this.accounts;
-    return await this.calculateAndCall('isAdmin', [ account ], 'call');
+  async isAdmin() {
+    const [account] = this.accounts;
+    return await this.calculateAndCall('isAdmin', [account], 'call');
   }
 
 
@@ -897,9 +898,9 @@ export class ContractService {
    * @name isUser
    * @returns 
    */
-  async isUser(){
-    const [ account ] = this.accounts;
-    return await this.calculateAndCall('isUser', [ account ], 'call');
+  async isUser() {
+    const [account] = this.accounts;
+    return await this.calculateAndCall('isUser', [account], 'call');
   }
 
 
@@ -908,8 +909,8 @@ export class ContractService {
    * @param account
    * @returns 
    */
-  async addUser(account: string){
-    return await this.calculateAndCall('addUser', [ account ], 'send');
+  async addUser(account: string) {
+    return await this.calculateAndCall('addUser', [account], 'send');
   }
 
 
@@ -918,8 +919,8 @@ export class ContractService {
    * @param account
    * @returns 
    */
-  async addAdmin(account: string){
-    return await this.calculateAndCall('addAdmin', [ account ], 'send');
+  async addAdmin(account: string) {
+    return await this.calculateAndCall('addAdmin', [account], 'send');
   }
 
 
@@ -928,8 +929,8 @@ export class ContractService {
    * @param account
    * @returns 
    */
-  async removeUser(account: string){
-    return await this.calculateAndCall('removeUser', [ account ], 'send');
+  async removeUser(account: string) {
+    return await this.calculateAndCall('removeUser', [account], 'send');
   }
 
 
@@ -937,9 +938,9 @@ export class ContractService {
    * @name renounceAdmin
    * @returns 
    */
-  async renounceAdmin(){
-    const [ account ] = this.accounts;
-    return await this.calculateAndCall('renounceAdmin', [ account ], 'send');
+  async renounceAdmin() {
+    const [account] = this.accounts;
+    return await this.calculateAndCall('renounceAdmin', [account], 'send');
   }
 
 
@@ -954,7 +955,7 @@ export class ContractService {
    * @name SANCTIONS_CONTRACT
    * @returns 
    */
-   async SANCTIONS_CONTRACT() {
+  async SANCTIONS_CONTRACT() {
     return await this.calculateAndCall('SANCTIONS_CONTRACT', null, 'call');
   }
 
@@ -974,7 +975,7 @@ export class ContractService {
    * @returns 
    */
   async Sanctions(address) {
-    return await this.calculateAndCall('Sanctions', [ address ], 'call');
+    return await this.calculateAndCall('Sanctions', [address], 'call');
   }
 
 
@@ -984,7 +985,7 @@ export class ContractService {
    * @returns 
    */
   async setAddressSanctions(address) {
-    return await this.calculateAndCall('setAddressSanctions', [ address ], 'send');
+    return await this.calculateAndCall('setAddressSanctions', [address], 'send');
   }
 
 
@@ -994,7 +995,7 @@ export class ContractService {
    * @returns 
    */
   async setStateSanctions(status) {
-    return await this.calculateAndCall('setStateSanctions', [ status ], 'send');
+    return await this.calculateAndCall('setStateSanctions', [status], 'send');
   }
 
 
@@ -1061,7 +1062,7 @@ export class ContractService {
    * @returns 
    */
   async getPair(pairId: any) {
-    return await this.calculateAndCall('getPair', [ pairId ], 'call');
+    return await this.calculateAndCall('getPair', [pairId], 'call');
   }
 
 
@@ -1070,7 +1071,7 @@ export class ContractService {
   /* =======================================================
    *                        FactoryStakeToken   
    * ===================================================== */
-  
+
 
   /**
    * @name stakeCountToken
@@ -1079,7 +1080,7 @@ export class ContractService {
   async stakeCountToken() {
     return await this.calculateAndCall('stakeCountToken', null, 'call');
   }
-  
+
 
   /**
    * @name registerStakeToken
@@ -1151,7 +1152,7 @@ export class ContractService {
     return await this.calculateAndCall('_stakeCount', null, 'call');
   }
 
-  
+
   /**
    * @name registerStakeNft
    * @param params
@@ -1168,12 +1169,12 @@ export class ContractService {
     return await this.calculateAndCall('registerStake', [params], 'send');
   }
 
-  
+
   /**
    * @name stakeNftList
    * @returns 
    */
-   async stakeNftList() {
+  async stakeNftList() {
     return await this.calculateAndCall('stakeList', null, 'call');
   }
 
@@ -1183,7 +1184,7 @@ export class ContractService {
    * @param id
    * @returns 
    */
-   async getStake(id) {
+  async getStake(id) {
     return await this.calculateAndCall('getStake', [id], 'call');
   }
 
@@ -1194,7 +1195,7 @@ export class ContractService {
    * @param status
    * @returns 
    */
-   async activateStakedNft(id, status) {
+  async activateStakedNft(id, status) {
     return await this.calculateAndCall('activateStaked', [id, status], 'call');
   }
 
@@ -1209,7 +1210,7 @@ export class ContractService {
    * @param pairId 
    * @param tokenAmount 
    */
-   async BuyTokensFor(pairId, tokenAmount) {
+  async BuyTokensFor(pairId, tokenAmount) {
     return await this.calculateAndCall('BuyTokensFor', [pairId, tokenAmount], 'send');
   }
 
@@ -1250,7 +1251,7 @@ export class ContractService {
     return await this.calculateAndCall('stakeToken', [amountTokens, stakeId], 'send');
   }
 
-  
+
   /**
    * @name withdrawStake
    * @param amountTokens 
@@ -1308,7 +1309,7 @@ export class ContractService {
    * @param params._amount
    * @param params._unlockDate
    */
-   async newTimeLockedWallet(params) {
+  async newTimeLockedWallet(params) {
     return await this.calculateAndCall('newTimeLockedWallet', params, 'send');
   }
 
@@ -1320,7 +1321,7 @@ export class ContractService {
    * @param params._account
    * @param params._amount
    */
-   async fundRemover(params) {
+  async fundRemover(params) {
     return await this.calculateAndCall('fundRemover', params, 'send');
   }
 
@@ -1329,11 +1330,11 @@ export class ContractService {
    * @name getWallets
    * @param userAddress
    */
-   async getWallets(userAddress) {
+  async getWallets(userAddress) {
     return await this.calculateAndCall('getWallets', [userAddress], 'send');
   }
-  
-  
+
+
   /* =======================================================
   *                        TimeLockedWallet   
   * ===================================================== */
@@ -1352,7 +1353,7 @@ export class ContractService {
     });
   }
 
-  
+
   /**
    * @name timeLockedWallet_walletOwner
    * @param address
@@ -1366,7 +1367,7 @@ export class ContractService {
     });
   }
 
-  
+
   /**
    * @name timeLockedWallet_amount
    * @param address
@@ -1379,8 +1380,8 @@ export class ContractService {
       urlABI: this.timeLockedWalletABI
     });
   }
- 
-  
+
+
   /**
    * @name timeLockedWallet_unlockDate
    * @param address
@@ -1394,7 +1395,7 @@ export class ContractService {
     });
   }
 
-  
+
   /**
    * @name timeLockedWallet_createdAt
    * @param address
@@ -1462,7 +1463,7 @@ export class ContractService {
       urlABI: this.timeLockedWalletABI
     });
   }
- 
+
 
   /** ===============================================================
    *               Méthodo genérico para llamadas al SC
@@ -1478,18 +1479,18 @@ export class ContractService {
         ? this.uToken.methods[method]()
         : this.uToken.methods[method](...params)
 
-      if(callType === 'send'){
+      if (callType === 'send') {
 
-        const [ account ] = this.accounts;
+        const [account] = this.accounts;
         optionals.from = account;
 
-        const gasFee = await contractMethod.estimateGas( optionals );
+        const gasFee = await contractMethod.estimateGas(optionals);
         // console.log("gas", gasFee);
 
         optionals.gas = gasFee;
       }
 
-      const result = await contractMethod[callType]( optionals );
+      const result = await contractMethod[callType](optionals);
       // console.log("result", result);
 
       // this.sweetAlertSrv.showSuccess('Transacción exitosa');
@@ -1539,18 +1540,18 @@ export class ContractService {
         ? uToken.methods[method]()
         : uToken.methods[method](...params);
 
-      if(callType === 'send'){
+      if (callType === 'send') {
 
-        const [ account ] = this.accounts;
+        const [account] = this.accounts;
         optionals.from = account;
 
-        const gasFee = await contractMethod.estimateGas( optionals );
+        const gasFee = await contractMethod.estimateGas(optionals);
         // console.log("gas", gasFee);
 
         optionals.gas = gasFee;
       }
 
-      const result = await contractMethod[callType]( optionals );
+      const result = await contractMethod[callType](optionals);
       // console.log("result", result);
 
       return result;
