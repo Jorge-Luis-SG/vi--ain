@@ -17,6 +17,9 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminModule } from './components/admin/admin.module';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { PagesComponent } from './pages/pages.component';
+import { AdminComponent } from './admin/admin.component';
+import { PagesRoutingModule } from './pages/pages-routing.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,10 +34,9 @@ const maskConfig: Partial<IConfig> = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent, 
-    // HomeComponent,
-    // NavbarComponent,
-    // MetamaskComponent,
+    HomeComponent,
+    PagesComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     ClipboardModule,
     AppRoutingModule,
+    PagesRoutingModule,
     NgxSpinnerModule,
     PipesModule,
     AdminModule,
