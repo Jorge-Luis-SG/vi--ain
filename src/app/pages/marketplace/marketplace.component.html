@@ -26,148 +26,26 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
+        <div *ngFor="let item of listCard" class="col-md-6 col-lg-4 col-xl-3 pt-5"
+            [routerLink]="['/pages/nft', item.smartContract]">
             <div class="card card-custom card-collection">
                 <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
+                    <img [src]="item.image1" alt="">
                 </div>
                 <div class="card-body">
                     <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
+                        <img [src]="item.image2" alt="">
                     </div>
                     <div class="text-center mt-3">
                         <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor.
+                            {{item.title}}
                         </div>
                         <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span>
+                            by <span class="fc-primary"> {{item.by}}.</span>
                         </div>
                     </div>
                     <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
-            <div class="card card-custom card-collection">
-                <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
-                    </div>
-                    <div class="text-center mt-3">
-                        <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor. <span class="vrfcd"><i class="bi bi-patch-check-fill"></i></span>
-                        </div>
-                        <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span><span class="vrfcd"><i
-                                    class="bi bi-patch-check-fill"></i></span>
-                        </div>
-                    </div>
-                    <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
-            <div class="card card-custom card-collection">
-                <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
-                    </div>
-                    <div class="text-center mt-3">
-                        <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor. <span class="vrfcd"><i class="bi bi-patch-check-fill"></i></span>
-                        </div>
-                        <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span>
-                        </div>
-                    </div>
-                    <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
-            <div class="card card-custom card-collection">
-                <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
-                    </div>
-                    <div class="text-center mt-3">
-                        <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor.
-                        </div>
-                        <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span>
-                        </div>
-                    </div>
-                    <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
-            <div class="card card-custom card-collection">
-                <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
-                    </div>
-                    <div class="text-center mt-3">
-                        <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor.
-                        </div>
-                        <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span>
-                        </div>
-                    </div>
-                    <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pt-5">
-            <div class="card card-custom card-collection">
-                <div class="card-header">
-                    <img src="./assets/img/collection.jpg" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="avtr">
-                        <img src="./assets/img/collection.jpg" alt="">
-                    </div>
-                    <div class="text-center mt-3">
-                        <div class="fw-bold small fc-light">
-                            Lorem, ipsum dolor. <span class="vrfcd"><i class="bi bi-patch-check-fill"></i></span>
-                        </div>
-                        <div class="small">
-                            by <span class="fc-primary">Lorem, ipsum dolor.</span><span class="vrfcd"><i
-                                    class="bi bi-patch-check-fill"></i></span>
-                        </div>
-                    </div>
-                    <div class="fc-light mt-3 text-center">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Omnis, corrupti eius!
+                        {{item.description}}
                     </div>
                 </div>
             </div>
