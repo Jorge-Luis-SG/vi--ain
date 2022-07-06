@@ -15,7 +15,7 @@ const routes: Routes = [
         component: CollectionComponent,
     },
     {
-        path: 'nft/:smartContract/:id',
+        path: 'nft/:smartContract/:token_id',
         component: NftComponent,
     },
     {

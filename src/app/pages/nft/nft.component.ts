@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ContractService } from 'src/app/services/contract.service';
+import { MetadataNftService } from 'src/app/services/metadata-nft.service';
 
 @Component({
   selector: 'app-nft',
@@ -6,10 +9,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nft.component.css']
 })
 export class NftComponent implements OnInit {
+  smartContract: any;
+  baseTokenURi: any;
+  nameContract: any;
+  dataNft: any;
+  index: any;
+  token_id: any;
 
-  constructor() { }
+  constructor(
+    public metadataNft: MetadataNftService,
+    public route: ActivatedRoute,
+    public contractService: ContractService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+
+    this.route.params.subscribe(async params => {
+      console.warn("params", params)
+
+
+      this.smartContract = params.smartContract;
+      this.token_id = params.index;
+      // // console.warn("params", params.index)
+      // // console.warn("params", params.smartContract)
+
+      // @dev connect to contract
+      await this.contractService.reInitializating();
+
+      this.baseTokenURi = await this.contractService
+        .baseTokenURI(params.smartContract);
+
+
+      this.nameContract = await this.contractService
+        .name(params.smartContract);
+
+      // // console.log(this.baseTokenURi)
+      // // // @dev get list nft
+
+      this.dataNft = await this.metadataNft.getMetadata(this.baseTokenURi, this.token_id)
+      // console.log(this.dataNft)
+    })
   }
+
+
+
 
 }
