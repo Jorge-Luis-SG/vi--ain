@@ -11,7 +11,7 @@ const routes: Routes = [
         component: MarketplaceComponent,
     },
     {
-        path: 'collection/:smartContract',
+        path: 'collection/:smartContract/:index',
         component: CollectionComponent,
     },
     {

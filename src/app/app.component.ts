@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbiService } from './services/abi.service';
 import { ContractService } from './services/contract.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { ContractService } from './services/contract.service';
 export class AppComponent implements OnInit {
   title = 'mind';
 
-  constructor(public contractService: ContractService) {
+  constructor(
+    public abiService: AbiService,
+    public contractService: ContractService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.contractService.connectAccount();
   }
 }

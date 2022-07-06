@@ -47,4 +47,20 @@ export class AbiService {
       }
     })
   }
+
+
+  async parseABI(url: string) {
+    const abi: any = await this.getABIByUrl(url);
+
+    const newABI = {};
+
+    for (const [idx, value] of Object.entries(abi)) {
+      const row: any = value;
+      const prop = (Object.prototype.hasOwnProperty.call(row, 'name')) ? row.name : row.type;
+
+      newABI[prop] = row;
+    }
+
+    return newABI;
+  }
 }

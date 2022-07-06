@@ -5,6 +5,7 @@ import { TruncateWalletAddressPipe } from './truncate-wallet-address.pipe';
 import { PairPipe } from './pair.pipe';
 import { Erc20Pipe } from './erc20.pipe';
 import { Erc721Pipe } from './erc721.pipe';
+import { GetAddressPipe } from './get-address.pipe';
 
 
 
@@ -15,6 +16,7 @@ import { Erc721Pipe } from './erc721.pipe';
     PairPipe,
     Erc20Pipe,
     Erc721Pipe,
+    GetAddressPipe,
   ],
   exports: [
     Web3UtilsPipe,
@@ -22,6 +24,7 @@ import { Erc721Pipe } from './erc721.pipe';
     PairPipe,
     Erc20Pipe,
     Erc721Pipe,
+    GetAddressPipe
   ],
   imports: [
     CommonModule

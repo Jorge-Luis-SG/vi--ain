@@ -29,7 +29,7 @@
     </div>
     <div class="row mt-5">
         <div *ngFor="let item of listCard" class="col-md-6 col-lg-4 col-xl-3 pt-5"
-            [routerLink]="['/pages/collection', item.smartContract]">
+            [routerLink]="['/pages/collection', item.smartContract, item.index]">
             <div class="card card-custom card-collection">
                 <div class="card-header">
                     <img [src]="item.image1" alt="">

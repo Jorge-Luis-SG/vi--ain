@@ -40,8 +40,12 @@ export class ContractService {
   public timeLockedWalletABI = '/assets/abi/erc20.TimeLockedWallet.json';
   public erc20ABI = '/assets/abi/erc20.json';
   public erc721ABI = '/assets/abi/erc721.json';
-  public erc721ABIf = '/assets/abi/erc721f.json';
+  public erc721ABIf = '/assets/abi/erc721fa.json';
+  public marketplaceMindAbi = "/assets/abi/MarketplaceMind.json";
   public waitForTransactions = 12000;
+
+
+
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -120,10 +124,10 @@ export class ContractService {
     let token_abi: any = await this.abiService.getABI()
 
     let token_address = environment.contractAddress;
-    console.log("token_address", token_address)
+    // console.log("token_address", token_address)
 
     this.uToken = new this.web3js.eth.Contract(token_abi, token_address);
-    console.log("uToken", this.uToken.methods)
+    // console.log("uToken", this.uToken.methods)
 
     this.checkNetwork();
 
@@ -361,7 +365,7 @@ export class ContractService {
         }
 
 
-        console.log({ data });
+        // console.log({ data });
         this.spinner.hide();
 
         resolve('ok')
@@ -1463,6 +1467,50 @@ export class ContractService {
       urlABI: this.timeLockedWalletABI
     });
   }
+
+
+  /// @dev This function is used to call a custom ABI
+  async baseTokenURI(smartContractAddress) {
+    console.log('baseTokenURI', smartContractAddress);
+    return await this.calculateAndCallCustomABI({
+      contractAddress: smartContractAddress,
+      method: 'baseTokenURI',
+      callType: 'call',
+      urlABI: this.erc721ABIf
+    });
+  }
+
+
+  // @dev get name of token erc721
+  async name(smartContractAddress) {
+    console.log('baseTokenURI', smartContractAddress);
+    return await this.calculateAndCallCustomABI({
+      contractAddress: smartContractAddress,
+      method: 'name',
+      callType: 'call',
+      urlABI: this.erc721ABIf
+    });
+  }
+
+
+
+  /* =======================================================
+    marketplace
+  ===================================================== */
+
+
+  /// @dev get list of all tokens
+  async getListActive(index) {
+    return await this.calculateAndCallCustomABI({
+      contractAddress: environment.marketplaceAddress,
+      method: 'getListActive',
+      params: [index],
+      callType: 'call',
+      urlABI: this.marketplaceMindAbi
+    });
+  }
+
+
 
 
   /** ===============================================================

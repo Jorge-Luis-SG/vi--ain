@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CollectionComponent } from './collection/collection.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -24,6 +25,7 @@ import { CollectionComponent } from './collection/collection.component';
   imports: [
     CommonModule,
     FormsModule,
+    PipesModule,
     ReactiveFormsModule,
     ClipboardModule,
     PagesRoutingModule
