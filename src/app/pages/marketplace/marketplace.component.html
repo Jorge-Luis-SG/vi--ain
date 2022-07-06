@@ -1,3 +1,5 @@
+<app-nav-bar></app-nav-bar>
+
 <div class="container container-custom mt-5">
     <div class="row mb-5">
         <div class="col">
@@ -27,7 +29,7 @@
     </div>
     <div class="row mt-5">
         <div *ngFor="let item of listCard" class="col-md-6 col-lg-4 col-xl-3 pt-5"
-            [routerLink]="['/pages/nft', item.smartContract]">
+            [routerLink]="['/pages/collection', item.smartContract]">
             <div class="card card-custom card-collection">
                 <div class="card-header">
                     <img [src]="item.image1" alt="">
@@ -53,3 +55,5 @@
     </div>
 
 </div>
+
+<app-footer></app-footer>

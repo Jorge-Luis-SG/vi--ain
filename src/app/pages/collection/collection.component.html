@@ -1,0 +1,102 @@
+<app-nav-bar></app-nav-bar>
+
+<section>
+    <div class="header_p">
+        <img class="banner-img" src="/assets/img/collection.jpg" alt="">
+        <div class="avtr">
+            <img src="/assets/img/collection.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<div class="container container-custom mt-5">
+    <div class="row mb-5">
+        <div class="col">
+            <div class="fs-3 fw-bold fc-light">
+                Lorem ipsum dolor sit.
+            </div>
+            <div class="small fc-light">AQUNb8...CKru
+                <span>Junio 2022</span>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <div class="d-flex">
+                <div class="ms-3 fc-light"><i class="bi bi-share-fill"></i></div>
+                <div class="ms-3 fc-light"><i class="bi bi-three-dots"></i></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col">
+            <ul class="nav nav-secdry border-0">
+                <li class="nav-item">
+                    <a class="nav-link fc-light active" aria-current="page" href="#">Trending</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fc-light" href="#">Top</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fc-light" href="#">Colection 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fc-light" href="#">Colection 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fc-light" href="#">Colection 3</a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+    <!-- <div class="row mt-3">
+        <div class="col">
+            <div class="d-flex c-filters flex-column flex-md-row">
+                <form class="d-flex flex-fill pe-md-3">
+                    <div class="search-bar d-flex w-100">
+                        <button class="btn" type="submit"><i class="bi bi-search"></i></button>
+                        <input class="form-control input-custom me-lg-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                </form>
+                <select class="form-select select-custom fc-light me-3 mt-3 mt-md-0"
+                    aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <div class="d-flex mt-3 mt-md-0">
+                    <div class="icon-flt d-flex justify-content-center align-items-center me-3"><i
+                            class="bi bi-grid"></i></div>
+                    <div class="icon-flt d-flex justify-content-center align-items-center"><i
+                            class="bi bi-grid-3x3-gap"></i></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div *ngFor="let item of listNft" class="col-md-6 col-lg-3 pt-5" [routerLink]="['/pages/nft',item.sc, item.id]">
+            <div class="card card-custom card-collection card-collection-prfl">
+                <div class="card-header">
+                    <img [src]="item.image" alt="">
+                    <div class="fc-primary icon-fltn">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="text-start">
+                        <div class="fw-bold small fc-light">
+                            {{ item.name}}
+                        </div>
+                        <div class="small">
+                            by <span class="fc-primary"> {{ item.collection}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -8,6 +8,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CollectionComponent } from './collection/collection.component';
 
 
 
@@ -17,7 +18,8 @@ import { ProfileComponent } from './profile/profile.component';
     NftComponent,
     NavBarComponent,
     FooterComponent,
-    ProfileComponent
+    ProfileComponent,
+    CollectionComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CollectionComponent } from './collection/collection.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { NftComponent } from './nft/nft.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -10,10 +11,15 @@ const routes: Routes = [
         component: MarketplaceComponent,
     },
     {
-        path: 'nft/:id',
+        path: 'collection/:smartContract',
+        component: CollectionComponent,
+    },
+    {
+        path: 'nft/:smartContract/:id',
         component: NftComponent,
-    }, {
-        path: 'Profile',
+    },
+    {
+        path: 'profile',
         component: ProfileComponent,
     },
     {

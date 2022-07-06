@@ -6,8 +6,8 @@
                 <i class="bi bi-list"></i>
             </span>
         </button>
-        <a class="navbar-brand" href="#">
-            <img src="img/logo.svg" alt="">
+        <a class="navbar-brand" [routerLink]="['/']">
+            <img src="/assets/img/logo.svg" alt="">
         </a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo03">
             <form class="d-flex flex-fill">
@@ -18,7 +18,7 @@
                 </div>
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-lg-end">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Store</a>
                 </li>
                 <li class="nav-item">
@@ -29,8 +29,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Create</a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <li routerLink="/pages/profile" class="nav-item">
                     <button class="btn">
                         <i class="bi bi-wallet2"></i>
                     </button>
