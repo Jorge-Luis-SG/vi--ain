@@ -7,6 +7,7 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { PagesRoutingModule } from './pages-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     MarketplaceComponent,
     NftComponent,
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

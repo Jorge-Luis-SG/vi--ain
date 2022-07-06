@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { NftComponent } from './nft/nft.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     {
@@ -11,6 +12,9 @@ const routes: Routes = [
     {
         path: 'nft/:id',
         component: NftComponent,
+    }, {
+        path: 'Profile',
+        component: ProfileComponent,
     },
     {
         path: '',
