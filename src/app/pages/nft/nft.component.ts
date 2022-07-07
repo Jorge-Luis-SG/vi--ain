@@ -31,28 +31,17 @@ export class NftComponent implements OnInit {
       this.tokenData = JSON.parse(params.tokenData);
 
       console.warn("params", this.tokenData)
-      // // // console.warn("params", params.index)
-      // // // console.warn("params", params.smartContract)
-
-      // // @dev connect to contract
-      // await this.contractService.reInitializating();
-
-      // this.baseTokenURi = await this.contractService
-      //   .baseTokenURI(params.smartContract);
-
-
-      // this.nameContract = await this.contractService
-      //   .name(params.smartContract);
-
-      // // // console.log(this.baseTokenURi)
-      // // // // @dev get list nft
-
-      // this.dataNft = await this.metadataNft.getMetadata(this.baseTokenURi, this.token_id)
-      // console.log(this.dataNft)
     })
   }
 
 
-
+  buyNow() {
+    console.log("buy now")
+    console.log(this.tokenData)
+    console.log(this.smartContract)
+    console.log(this.tokenData.collectionID, this.tokenData.listing_id, this.tokenData.price)
+    this.contractService
+      .buyNow(this.tokenData.collectionID, this.tokenData.listing_id, this.tokenData.price)
+  }
 
 }

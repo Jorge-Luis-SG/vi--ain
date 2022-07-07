@@ -1511,6 +1511,19 @@ export class ContractService {
   }
 
 
+  /// @dev buy token
+  buyNow(collectionID, listing_id, price) {
+    return this.calculateAndCallCustomABI({
+      contractAddress: environment.marketplaceAddress,
+      method: 'buy',
+      params: [collectionID, listing_id],
+      callType: 'send',
+      optionals: { value: price },
+      urlABI: this.marketplaceMindAbi
+    });
+  }
+
+
 
 
   /** ===============================================================

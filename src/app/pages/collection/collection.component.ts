@@ -18,6 +18,7 @@ export class CollectionComponent implements OnInit {
   date = new Date();
   smartContract: any
   nameContract: any;
+  collectionID: any;
   constructor(
     public metadataNft: MetadataNftService,
     public route: ActivatedRoute,
@@ -31,8 +32,8 @@ export class CollectionComponent implements OnInit {
 
 
       this.smartContract = params.smartContract;
-      this.index = params.index;
-      console.warn("params", this.index)
+      this.collectionID = params.index;
+      console.warn("params", this.collectionID)
       // console.warn("params", params.smartContract)
 
       // @dev connect to contract
@@ -66,8 +67,10 @@ export class CollectionComponent implements OnInit {
       .getListActive(index)
 
     /// @dev map data
-    this.listNft = await Promise.all(data.map(async x => {
+    this.listNft = await Promise.all(data.map(async (x, index) => {
       return {
+        listing_id: index,
+        collectionID: this.collectionID,
         metadata_json: await this.metadataNft.getMetadata(this.baseTokenURi, x['token_id']),
         is_active: x['is_active'],
         owner: x['owner'],
