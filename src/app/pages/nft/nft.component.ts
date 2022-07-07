@@ -14,7 +14,7 @@ export class NftComponent implements OnInit {
   nameContract: any;
   dataNft: any;
   index: any;
-  token_id: any;
+  tokenData: any;
 
   constructor(
     public metadataNft: MetadataNftService,
@@ -28,24 +28,26 @@ export class NftComponent implements OnInit {
 
 
       this.smartContract = params.smartContract;
-      this.token_id = params.index;
-      // // console.warn("params", params.index)
-      // // console.warn("params", params.smartContract)
+      this.tokenData = JSON.parse(params.tokenData);
 
-      // @dev connect to contract
-      await this.contractService.reInitializating();
+      console.warn("params", this.tokenData)
+      // // // console.warn("params", params.index)
+      // // // console.warn("params", params.smartContract)
 
-      this.baseTokenURi = await this.contractService
-        .baseTokenURI(params.smartContract);
+      // // @dev connect to contract
+      // await this.contractService.reInitializating();
+
+      // this.baseTokenURi = await this.contractService
+      //   .baseTokenURI(params.smartContract);
 
 
-      this.nameContract = await this.contractService
-        .name(params.smartContract);
+      // this.nameContract = await this.contractService
+      //   .name(params.smartContract);
 
-      // // console.log(this.baseTokenURi)
-      // // // @dev get list nft
+      // // // console.log(this.baseTokenURi)
+      // // // // @dev get list nft
 
-      this.dataNft = await this.metadataNft.getMetadata(this.baseTokenURi, this.token_id)
+      // this.dataNft = await this.metadataNft.getMetadata(this.baseTokenURi, this.token_id)
       // console.log(this.dataNft)
     })
   }

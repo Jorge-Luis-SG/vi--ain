@@ -5,7 +5,7 @@
     <div class="row mb-5">
         <div class="col-12 col-sm-10 offset-sm-1 offset-lg-0 mb-3 mb-lg-0 col-lg-5">
             <div class="card card-custom card-collection card-nft">
-                <div class="header-card-nft">
+                <!-- <div class="header-card-nft">
                     <div class="d-flex justify-content-between p-3">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -21,58 +21,35 @@
                             <span>2</span> <i class="bi bi-heart-fill"></i>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="img-nft">
-                    <img src="./assets/img/collection.jpg" alt="">
+                    <img [src]="tokenData?.metadata_json?.image" alt="">
                 </div>
             </div>
         </div>
         <div class="col-12 col-sm-10 offset-sm-1 offset-lg-0 col-lg-7">
             <div class="small">
-                <span class="fc-primary">Lorem, ipsum dolor.</span>
+                <span class="fc-primary">{{tokenData?.metadata_json?.description}}</span>
                 <span class="vrfcd ps-2"></span>
                 <span class="vrfcd">
                     <i class="bi bi-patch-check-fill"></i>
                 </span>
             </div>
             <div class="fs-3 my-3  fw-bold">
-                Lorem, ipsum dolor.
+                {{tokenData?.metadata_json?.name }}
             </div>
             <div class="d-flex">
                 <div>
-                    <span class="">Owned by</span><span class="fc-primary ps-2">Lorem, ipsum.</span>
+                    <span class="">Owned by</span><span class="fc-primary ps-2">{{tokenData?.owner|getAddress}}</span>
                 </div>
-                <div class="ms-3">
+                <!-- <div class="ms-3">
                     <span class=""><i class="bi bi-eye-fill"></i></span>
                     <span class=" ps-2">84 view</span>
                 </div>
                 <div class="ms-3">
                     <span class=""><i class="bi bi-heart-fill"></i></span>
                     <span class=" ps-2">2 favorite</span>
-                </div>
-            </div>
-            <div class="mt-3">
-                <div class="fs-6 ">
-                    Sale July 06, 2022 at 11:50am GMT-5
-                </div>
-                <div class="row w-75 my-3">
-                    <div class="col">
-                        <div>00</div>
-                        <div>Days</div>
-                    </div>
-                    <div class="col">
-                        <div>00</div>
-                        <div>Hours</div>
-                    </div>
-                    <div class="col">
-                        <div>00</div>
-                        <div>Minutes</div>
-                    </div>
-                    <div class="col">
-                        <div>00</div>
-                        <div>Seconds</div>
-                    </div>
-                </div>
+                </div> -->
             </div>
             <div class="mt-3">
                 <div class="small">Current price</div>
@@ -87,13 +64,13 @@
                                 d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
                         </svg>
                     </div>
-                    <div class="fs-3 fw-bold px-3">0.38</div>
-                    <div class="small">($00)</div>
+                    <div class="fs-3 fw-bold px-3">{{tokenData?.price| web3Utils:'fromWei'}}</div> BNB
+                    <!-- <div class="small">($00)</div> -->
                 </div>
             </div>
             <div class="d-flex mt-3">
                 <button class="btn-one"><i class="bi bi-wallet2"></i> Buy Now</button>
-                <button class="btn-two ms-3"><i class="bi bi-tag-fill"></i> Make Offert</button>
+                <!-- <button class="btn-two ms-3"><i class="bi bi-tag-fill"></i> Make Offert</button> -->
             </div>
         </div>
     </div>

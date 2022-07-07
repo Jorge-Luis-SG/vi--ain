@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContractService } from 'src/app/services/contract.service';
 import { MetadataNftService } from 'src/app/services/metadata-nft.service';
 import { threadId } from 'worker_threads';
@@ -14,13 +14,14 @@ export class CollectionComponent implements OnInit {
   listNft: any
   baseTokenURi: any;
   collectionIndex: any;
-
+  index: any
   date = new Date();
   smartContract: any
   nameContract: any;
   constructor(
     public metadataNft: MetadataNftService,
     public route: ActivatedRoute,
+    public router: Router,
     public contractService: ContractService) { }
 
   async ngOnInit(): Promise<void> {
@@ -30,7 +31,8 @@ export class CollectionComponent implements OnInit {
 
 
       this.smartContract = params.smartContract;
-      // console.warn("params", params.index)
+      this.index = params.index;
+      console.warn("params", this.index)
       // console.warn("params", params.smartContract)
 
       // @dev connect to contract
@@ -48,10 +50,13 @@ export class CollectionComponent implements OnInit {
       // // @dev get list nft
       this.getListActive(params.index)
     })
-
-
   }
 
+
+  goToNft(item) {
+    this.router.navigate(['/pages/nft', this.smartContract, JSON.stringify(item)])
+    return
+  }
 
   /// @dev get list nft
   async getListActive(index: string) {
