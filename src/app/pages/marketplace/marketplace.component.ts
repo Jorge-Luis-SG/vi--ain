@@ -14,7 +14,7 @@ export class MarketplaceComponent implements OnInit {
     by: 'This is a bio',
     image1: './assets/img/collection.jpg',
     image2: './assets/img/collection.jpg',
-    index: "1",
+    index: "0",
     smartContract:'0xe8F29fd35B2a4Eb837C55f6fac4d9Cbfe04c93C1',
   }, {
     title: 'Card 2',
@@ -22,7 +22,7 @@ export class MarketplaceComponent implements OnInit {
     by: 'This is a bio',
     image1: './assets/img/collection.jpg',
     image2: './assets/img/collection.jpg',
-    index: "1",
+    index: "0",
     smartContract:'0xe8F29fd35B2a4Eb837C55f6fac4d9Cbfe04c93C1',
   }, {
     title: 'Card 3',
@@ -30,7 +30,7 @@ export class MarketplaceComponent implements OnInit {
     by: 'This is a bio',
     image1: './assets/img/collection.jpg',
     image2: './assets/img/collection.jpg',
-    index: "1",
+    index: "0",
     smartContract:'0xe8F29fd35B2a4Eb837C55f6fac4d9Cbfe04c93C1',
   }]
 

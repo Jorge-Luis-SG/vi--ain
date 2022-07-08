@@ -62,22 +62,26 @@ export class CollectionComponent implements OnInit {
   /// @dev get list nft
   async getListActive(index: string) {
 
+    console.warn("collectionID", index)
     /// @dev get list nft
     let data = await this.contractService
       .getListActive(index)
 
+    console.warn("getListActive", data)
+
     /// @dev map data
-    this.listNft = await Promise.all(data.map(async (x, index) => {
-      return {
-        listing_id: index,
-        collectionID: this.collectionID,
-        metadata_json: await this.metadataNft.getMetadata(this.baseTokenURi, x['token_id']),
-        is_active: x['is_active'],
-        owner: x['owner'],
-        price: x['price'],
-        token_id: x['token_id'],
-      }
-    }))
+    this.listNft = await Promise
+      .all(data.map(async (x) => {
+        return {
+          listing_id: x['listing_id'],
+          collectionID: this.collectionID,
+          metadata_json: await this.metadataNft.getMetadata(this.baseTokenURi, x['token_id']),
+          is_active: x['is_active'],
+          owner: x['owner'],
+          price: x['price'],
+          token_id: x['token_id'],
+        }
+      }))
 
     console.log("this.listNft", this.listNft)
 

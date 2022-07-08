@@ -1500,7 +1500,7 @@ export class ContractService {
 
 
   /// @dev get list of all tokens
-  async getListActive(index) {
+  async getListActive(index: string) {
     return await this.calculateAndCallCustomABI({
       contractAddress: environment.marketplaceAddress,
       method: 'getListActive',
@@ -1519,6 +1519,18 @@ export class ContractService {
       params: [collectionID, listing_id],
       callType: 'send',
       optionals: { value: price },
+      urlABI: this.marketplaceMindAbi
+    });
+  }
+
+
+  /// dev Sell token
+  addListing(collectionID, token_id, price) {
+    return this.calculateAndCallCustomABI({
+      contractAddress: environment.marketplaceAddress,
+      method: 'addListing',
+      params: [collectionID, token_id, price],
+      callType: 'send',
       urlABI: this.marketplaceMindAbi
     });
   }

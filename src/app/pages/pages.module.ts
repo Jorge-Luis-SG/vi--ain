@@ -10,6 +10,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CollectionComponent } from './collection/collection.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { SellComponent } from './nft/components/sell/sell.component';
 
 
 
@@ -20,7 +21,8 @@ import { PipesModule } from '../pipes/pipes.module';
     NavBarComponent,
     FooterComponent,
     ProfileComponent,
-    CollectionComponent
+    CollectionComponent,
+    SellComponent
   ],
   imports: [
     CommonModule,
