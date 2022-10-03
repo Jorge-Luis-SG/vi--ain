@@ -7,7 +7,7 @@ import { PagesComponent } from './pages/pages.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/pages/marketplace',
+    redirectTo: '/pages/home',
     pathMatch: 'full'
   },
   {

@@ -1,28 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MarketplaceComponent } from './marketplace/marketplace.component';
-import { NftComponent } from './nft/nft.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from 'ngx-clipboard';
 import { PagesRoutingModule } from './pages-routing.module';
 import { NavBarComponent } from '../shared/nav-bar/nav-bar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
-import { ProfileComponent } from './profile/profile.component';
-import { CollectionComponent } from './collection/collection.component';
 import { PipesModule } from '../pipes/pipes.module';
-import { SellComponent } from './nft/components/sell/sell.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 @NgModule({
   declarations: [
-    MarketplaceComponent,
-    NftComponent,
     NavBarComponent,
     FooterComponent,
-    ProfileComponent,
-    CollectionComponent,
-    SellComponent
+    HomeComponent,
   ],
   imports: [
     CommonModule,

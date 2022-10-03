@@ -1,30 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CollectionComponent } from './collection/collection.component';
-import { MarketplaceComponent } from './marketplace/marketplace.component';
-import { NftComponent } from './nft/nft.component';
-import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
     {
-        path: 'marketplace',
-        component: MarketplaceComponent,
-    },
-    {
-        path: 'collection/:smartContract/:index',
-        component: CollectionComponent,
-    },
-    {
-        path: 'nft/:smartContract/:tokenData',
-        component: NftComponent,
-    },
-    {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'home',
+        component: HomeComponent,
     },
     {
         path: '',
-        redirectTo: '/pages/marketplace',
+        redirectTo: '/pages/home',
         pathMatch: 'full'
     },
 ];
