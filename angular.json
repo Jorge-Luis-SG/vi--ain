@@ -40,7 +40,8 @@
 							"@walletconnect/encoding",
 							"query-string",
 							"web3",
-							"@walletconnect/web3-provider"
+							"@walletconnect/web3-provider",
+							"@sanity/client"
 						],
 						"styles": [
 							"node_modules/bootstrap/dist/css/bootstrap.min.css",
