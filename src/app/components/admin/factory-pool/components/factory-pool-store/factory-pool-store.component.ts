@@ -8,7 +8,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-factory-pool-store',
   templateUrl: './factory-pool-store.component.html',
-  styleUrls: ['./factory-pool-store.component.css']
+  styleUrls: ['./factory-pool-store.component.scss']
 })
 export class FactoryPoolStoreComponent implements OnInit {
 

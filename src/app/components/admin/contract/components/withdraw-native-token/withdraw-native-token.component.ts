@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-withdraw-native-token',
   templateUrl: './withdraw-native-token.component.html',
-  styleUrls: ['./withdraw-native-token.component.css']
+  styleUrls: ['./withdraw-native-token.component.scss']
 })
 export class WithdrawNativeTokenComponent implements OnInit {
 

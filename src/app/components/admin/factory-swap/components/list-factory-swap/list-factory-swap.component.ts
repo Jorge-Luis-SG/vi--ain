@@ -5,7 +5,7 @@ import { FactorySwapUpdatePairComponent } from '../factory-swap-update-pair/fact
 @Component({
   selector: 'app-list-factory-swap',
   templateUrl: './list-factory-swap.component.html',
-  styleUrls: ['./list-factory-swap.component.css']
+  styleUrls: ['./list-factory-swap.component.scss']
 })
 export class ListFactorySwapComponent implements OnInit {
 

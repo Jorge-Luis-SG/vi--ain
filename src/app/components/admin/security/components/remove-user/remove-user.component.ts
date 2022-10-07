@@ -6,7 +6,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-remove-user',
   templateUrl: './remove-user.component.html',
-  styleUrls: ['./remove-user.component.css']
+  styleUrls: ['./remove-user.component.scss']
 })
 export class RemoveUserComponent implements OnInit {
 

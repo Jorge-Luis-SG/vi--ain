@@ -5,7 +5,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-remove-admin',
   templateUrl: './remove-admin.component.html',
-  styleUrls: ['./remove-admin.component.css']
+  styleUrls: ['./remove-admin.component.scss']
 })
 export class RemoveAdminComponent implements OnInit {
 

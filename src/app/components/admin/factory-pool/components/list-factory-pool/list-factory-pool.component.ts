@@ -6,7 +6,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-list-factory-pool',
   templateUrl: './list-factory-pool.component.html',
-  styleUrls: ['./list-factory-pool.component.css']
+  styleUrls: ['./list-factory-pool.component.scss']
 })
 export class ListFactoryPoolComponent implements OnInit {
 

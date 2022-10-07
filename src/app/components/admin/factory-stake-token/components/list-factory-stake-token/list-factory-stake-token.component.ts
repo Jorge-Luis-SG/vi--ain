@@ -5,7 +5,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-list-factory-stake-token',
   templateUrl: './list-factory-stake-token.component.html',
-  styleUrls: ['./list-factory-stake-token.component.css']
+  styleUrls: ['./list-factory-stake-token.component.scss']
 })
 export class ListFactoryStakeTokenComponent implements OnInit {
 

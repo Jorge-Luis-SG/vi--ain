@@ -44,6 +44,14 @@ export const environment = {
       decimals: 18,
     },
   },
+  sanity: {
+    projectId: 'xeqvg5n1',
+    dataset: 'production',
+    useCdn: true,
+  },
+  web: {
+    url: 'http://localhost:4200',
+  },
 };
 
 /*

@@ -7,7 +7,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-factory-pool-update',
   templateUrl: './factory-pool-update.component.html',
-  styleUrls: ['./factory-pool-update.component.css']
+  styleUrls: ['./factory-pool-update.component.scss']
 })
 export class FactoryPoolUpdateComponent implements OnInit, OnChanges {
 

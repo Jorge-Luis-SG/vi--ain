@@ -9,7 +9,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-factory-swap-store-pair',
   templateUrl: './factory-swap-store-pair.component.html',
-  styleUrls: ['./factory-swap-store-pair.component.css']
+  styleUrls: ['./factory-swap-store-pair.component.scss']
 })
 export class FactorySwapStorePairComponent implements OnInit {
 

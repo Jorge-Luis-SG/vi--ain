@@ -6,7 +6,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-set-vault-address',
   templateUrl: './set-vault-address.component.html',
-  styleUrls: ['./set-vault-address.component.css']
+  styleUrls: ['./set-vault-address.component.scss']
 })
 export class SetVaultAddressComponent implements OnInit {
 

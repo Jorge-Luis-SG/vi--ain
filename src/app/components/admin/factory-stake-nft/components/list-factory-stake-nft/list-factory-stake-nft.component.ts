@@ -5,7 +5,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-list-factory-stake-nft',
   templateUrl: './list-factory-stake-nft.component.html',
-  styleUrls: ['./list-factory-stake-nft.component.css']
+  styleUrls: ['./list-factory-stake-nft.component.scss']
 })
 export class ListFactoryStakeNftComponent implements OnInit {
 

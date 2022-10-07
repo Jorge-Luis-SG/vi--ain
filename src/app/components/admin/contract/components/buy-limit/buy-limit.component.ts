@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-buy-limit',
   templateUrl: './buy-limit.component.html',
-  styleUrls: ['./buy-limit.component.css']
+  styleUrls: ['./buy-limit.component.scss']
 })
 export class BuyLimitComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-add-admin',
   templateUrl: './add-admin.component.html',
-  styleUrls: ['./add-admin.component.css']
+  styleUrls: ['./add-admin.component.scss']
 })
 export class AddAdminComponent implements OnInit {
   public form: FormGroup;

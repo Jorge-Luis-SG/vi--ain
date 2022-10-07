@@ -8,7 +8,7 @@ import { Sweetalert2Service } from 'src/app/services/sweetalert2.service';
 @Component({
   selector: 'app-withdraw-token-onwer',
   templateUrl: './withdraw-token-onwer.component.html',
-  styleUrls: ['./withdraw-token-onwer.component.css']
+  styleUrls: ['./withdraw-token-onwer.component.scss']
 })
 export class WithdrawTokenOnwerComponent implements OnInit {
 
