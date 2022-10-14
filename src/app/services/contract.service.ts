@@ -716,6 +716,15 @@ export class ContractService {
    *                         NFT ERC721   
    * ===================================================== */
 
+  async checkWalletIntoWhiteList(addr: string){
+    const list: any = await this.abiService.getABIByUrl("/assets/abi/Whitelist.json");
+    return list.some((item) => item.toLowerCase() === addr.toLowerCase());
+  }
+
+  /* =======================================================
+   *                         NFT ERC721   
+   * ===================================================== */
+
 
   /**
    * @name approveAll
