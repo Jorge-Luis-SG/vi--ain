@@ -85,7 +85,10 @@ export class Mint2Component implements OnInit {
           return;
         }
 
-      }else if(!isBeforeWhiteListTime){
+      }
+      
+      /** Es tiempo despues de whiteList */
+      if(!isBeforeWhiteListTime){
         this.alertStepSrv.showBasicAlert('collection not yet available', 'info');
         return;
       }
