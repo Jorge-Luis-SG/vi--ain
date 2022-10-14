@@ -754,6 +754,18 @@ export class ContractService {
     });
   }
 
+  async mintVIIANNFT(){
+    const [ addr ] = this.accounts;
+    return await this.calculateAndCallCustomABI({
+      contractAddress: environment.nftCollectionContract,
+      method: 'mintToken',
+      params: null,
+      callType: 'send',
+      optionals: { from: addr },
+      urlABI: this.VIIANSCollectionABI
+    });
+  }
+
 
 
 
