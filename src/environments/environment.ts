@@ -19,24 +19,24 @@ export const environment = {
     symbol: "#",
     decimals: 0,
   },
-  nftCollectionContract: "#",
+  nftCollectionContract: "0x3E144288C87d870EbB126f7Ffb36F180aD32f879",
   chain: {
 
     // Testnet
-    chainId: 5,
-    chainIdMetamask: "0x5",
-    chainName: "Goerli test network",
-    rpc: "https://goerli.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9",
-    rpcUrls: ["https://goerli.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9"],
-    blockExplorerUrls: ["https://goerli.etherscan.io/"],
+    // chainId: 5,
+    // chainIdMetamask: "0x5",
+    // chainName: "Goerli test network",
+    // rpc: "https://goerli.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9",
+    // rpcUrls: ["https://goerli.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9"],
+    // blockExplorerUrls: ["https://goerli.etherscan.io/"],
 
     // Mainnnet 
-    // chainId: 1,
-    // chainIdMetamask: "0x1",
-    // chainName: "Ethereum Mainnet",
-    // rpc: "https://mainnet.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9",
-    // rpcUrls: ["https://mainnet.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9"],
-    // blockExplorerUrls: ["https://etherscan.io/"],
+    chainId: 1,
+    chainIdMetamask: "0x1",
+    chainName: "Ethereum Mainnet",
+    rpc: "https://mainnet.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9",
+    rpcUrls: ["https://mainnet.infura.io/v3/356256bc3fcf42de88d2bc2e129ea5d9"],
+    blockExplorerUrls: ["https://etherscan.io/"],
 
     nativeCurrency: {
       name: "Ethereum Mainnet",

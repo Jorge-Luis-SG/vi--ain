@@ -12,10 +12,12 @@ export class AppComponent implements OnInit {
 
   constructor(
     public abiService: AbiService,
-    public contractService: ContractService) {
+    public contractService: ContractService
+  ) {
   }
 
   async ngOnInit() {
     this.contractService.connectAccount();
   }
+
 }
