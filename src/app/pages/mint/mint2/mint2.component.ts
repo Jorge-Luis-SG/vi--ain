@@ -71,10 +71,11 @@ export class Mint2Component implements OnInit {
         year : 2022, month : 9, day : 14, hour : 9, minute : 0, second : 0, millisecond : 0
       }, "America/Bogota");
       const isWhitelistTime = currentTime.isBetween(start, end);
+      const isBeforeWhiteListTime = currentTime.isAfter(end);
       // console.log('isWhitelistTime', isWhitelistTime);
 
       /** Es tiempo de whiteList */
-      if(!isWhitelistTime){
+      if(isWhitelistTime){
 
         /** Validar si se encuentra dentro de la whitelist */
         const whiteList = await this.contractSrv.checkWalletIntoWhiteList(account);
@@ -84,6 +85,9 @@ export class Mint2Component implements OnInit {
           return;
         }
 
+      }else if(!isBeforeWhiteListTime){
+        this.alertStepSrv.showBasicAlert('collection not yet available', 'info');
+        return;
       }
 
       /** Validar Balance de usuario */
