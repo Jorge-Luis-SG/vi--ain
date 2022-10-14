@@ -1,0 +1,19 @@
+<div class="card d-flex justify-content-end" style="background-image: url(../../../../../assets/img/dash/cards/card{{bg}}.png)"
+ (click)="collection(bg,title,eth,price,view,likes)" routerLink="/buy-and-sell">
+  <div class="card-item position-relative">
+    <h5>{{title}}</h5>
+    <img src="../../../../../assets/img/dash/vi-logo.svg" class="logo position-absolute" alt="Vi-ain’s">
+    <div class="card-item-box d-flex justify-content-between">
+      <div>
+        <p class="price">Price</p>
+        <p><img src="../../../../../assets/img/dash/reload.svg" >{{likes}}</p>
+      </div>
+      <div>
+        <p class="eth">{{eth}} ETH</p>
+        <p class="dollar">${{price}}</p>
+        <p class="view">{{view}} views</p>
+      </div>
+    </div>
+
+  </div>
+</div>

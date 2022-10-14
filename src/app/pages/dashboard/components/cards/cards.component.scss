@@ -1,0 +1,59 @@
+@import "../../../../../styles.scss";
+
+* {
+  color: #fff;
+}
+.card {
+  background-size: cover;
+  padding: 0.55rem 0.8rem;
+  border-radius: 1.5rem;
+  // box-shadow: 0 1rem 5rem -2rem;
+  height: 315px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    &::after {
+      content: " ";
+      background-color: #00000010;
+    }
+  }
+  &::after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  &-item {
+    backdrop-filter: blur(10px) brightness(1.2);
+    border-radius: 1rem;
+    padding: 0.9rem 1.2rem;
+    z-index: 99;
+    h5 {
+      font-weight: 400;
+      font-size: 1.1rem !important;
+      margin: 0;
+    }
+    .logo {
+      right: 12px;
+      top: -25px;
+    }
+    &-box {
+      .price {
+        margin: 1rem 0;
+      }
+      img {
+        width: 17px;
+        margin-right: 0.7rem;
+      }
+      .eth {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 0.65rem;
+      }
+    }
+  }
+}

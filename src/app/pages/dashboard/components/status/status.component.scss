@@ -1,0 +1,99 @@
+@import "../../../../../styles.scss";
+
+//
+
+%adaptive {
+  @media screen and (max-width: 750px) {
+    grid-gap: 1rem !important;
+  }
+  @media screen and (max-width: 550px) {
+    grid-template-columns: repeat(2, 50%) !important;
+    grid-gap: 2rem !important;
+  }
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-gap: 1.75rem;
+  align-items: center;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #683cb550;
+    border: 1px solid $color10;
+  }
+
+  //RESPONSIVE de los titulos
+
+  @extend %adaptive; //ESTA AL INICIO DE ESTA PAGINA!
+  @media screen and (max-width: 550px) {
+    position: relative;
+    &::after {
+      content: "";
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $color10;
+      position: absolute;
+    }
+    & > div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 385px) {
+    grid-template-columns: repeat(1, 100%);
+  }
+  //RESPONSIVE de los titulos
+
+  &-text1 {
+    img {
+      width: 50px;
+    }
+    span {
+      color: $textColor1;
+    }
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      div {
+        margin-top: 1rem;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      flex-direction: row;
+      div {
+        margin: 0 0 0 1rem;
+      }
+    }
+    @media screen and (max-width: 385px) {
+      flex-direction: column;
+      div {
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+  &-text3 {
+    button {
+      border: none;
+      background-color: #b259ff50;
+      width: 150px;
+      padding: 0.65rem 0;
+      border-radius: 1rem;
+      color: #b259ff;
+      font-weight: 500;
+      @media screen and (max-width: 750px) {
+        width: 110px;
+      }
+    }
+  }
+  &-text4 {
+    font-weight: bold;
+    span {
+      font-weight: 400;
+      color: $textColor1;
+    }
+  }
+}

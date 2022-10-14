@@ -44,6 +44,14 @@ import { MestComponent } from './pages/portfolio/web/mest/mest.component';
 import { NftixComponent } from './pages/portfolio/web/nftix/nftix.component';
 import { PandarianComponent } from './pages/portfolio/web/pandarian/pandarian.component';
 import { ItemSliderTeamComponent } from './components/slider-team/item-slider-team/item-slider-team.component';
+import { BuyAndSellComponent } from './pages/dashboard/pages/buy-and-sell/buy-and-sell.component';
+import { CardsComponent } from './pages/dashboard/components/cards/cards.component';
+import { CollectionNftComponent } from './pages/dashboard/pages/collection-nft/collection-nft.component';
+import { SideMenuComponent } from './pages/dashboard/components/side-menu/side-menu.component';
+import { SearchComponent } from './pages/dashboard/components/search/search.component';
+import { FilterComponent } from './pages/dashboard/components/filter/filter.component';
+import { StatusComponent } from './pages/dashboard/components/status/status.component';
+import { DashboardComponent } from './pages/dashboard/pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -85,6 +93,14 @@ import { ItemSliderTeamComponent } from './components/slider-team/item-slider-te
     NftixComponent,
     PandarianComponent,
     ItemSliderTeamComponent,
+    BuyAndSellComponent,
+    CardsComponent,
+    CollectionNftComponent,
+    SideMenuComponent,
+    SearchComponent,
+    FilterComponent,
+    StatusComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
