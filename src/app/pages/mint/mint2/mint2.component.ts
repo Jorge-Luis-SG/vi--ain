@@ -15,7 +15,8 @@ momentTimezone().tz("America/Bogota");
 })
 export class Mint2Component implements OnInit {
 
-  public maxValue = 2;
+  public maxPerWallet = 2;
+  public maxValue = 1;
   public valor = 0;
   public dataStatus$!: Observable<any>;
 
@@ -104,7 +105,7 @@ export class Mint2Component implements OnInit {
       });
 
       /** Validar maximo de minteos permitidos */
-      if(balance + this.valor > this.maxValue){
+      if(balance + this.valor > this.maxPerWallet){
         this.alertStepSrv.showBasicAlert('You have reached the maximum mint allowed', 'info');
         return;
       }
