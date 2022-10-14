@@ -79,7 +79,7 @@ export class ContractService {
       cacheProvider: true, // optional
       providerOptions, // required
       theme: {
-        background: "#fbe09e",
+        background: "#000000",
         main: "#323232",
         secondary: "rgb(136, 136, 136)",
         border: "rgba(195, 195, 195, 0.14)",
