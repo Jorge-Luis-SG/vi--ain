@@ -6,21 +6,6 @@
         "constructor": {
             "inputs": [
                 {
-                    "internalType": "address",
-                    "name": "_VRFCoordinator",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_LinkToken",
-                    "type": "address"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_keyHash",
-                    "type": "bytes32"
-                },
-                {
                     "internalType": "string",
                     "name": "_name",
                     "type": "string"
@@ -39,6 +24,11 @@
                     "internalType": "address",
                     "name": "_addressRoyalty",
                     "type": "address"
+                },
+                {
+                    "internalType": "uint96",
+                    "name": "_fee",
+                    "type": "uint96"
                 }
             ],
             "stateMutability": "nonpayable",
@@ -138,9 +128,9 @@
             "name": "Transfer",
             "type": "event"
         },
-        "MAX_MINT_PER_TX": {
+        "MAX_MINT_PER_WALLET": {
             "inputs": [],
-            "name": "MAX_MINT_PER_TX",
+            "name": "MAX_MINT_PER_WALLET",
             "outputs": [
                 {
                     "internalType": "uint256",
@@ -162,19 +152,6 @@
                 }
             ],
             "stateMutability": "view",
-            "type": "function"
-        },
-        "activeSale": {
-            "inputs": [
-                {
-                    "internalType": "bool",
-                    "name": "newValue",
-                    "type": "bool"
-                }
-            ],
-            "name": "activeSale",
-            "outputs": [],
-            "stateMutability": "nonpayable",
             "type": "function"
         },
         "approve": {
@@ -208,25 +185,6 @@
                 {
                     "internalType": "uint256",
                     "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        "characters": {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "characters",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "lvl",
                     "type": "uint256"
                 }
             ],
@@ -289,17 +247,48 @@
             "stateMutability": "view",
             "type": "function"
         },
-        "mintToken": {
-            "inputs": [],
-            "name": "mintToken",
-            "outputs": [
+        "mintAirdrop": {
+            "inputs": [
                 {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
+                    "internalType": "address[]",
+                    "name": "_a",
+                    "type": "address[]"
                 }
             ],
+            "name": "mintAirdrop",
+            "outputs": [],
             "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        "mintReserved": {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_addres",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "mintReserved",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        "mintToken": {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "mintToken",
+            "outputs": [],
+            "stateMutability": "payable",
             "type": "function"
         },
         "name": {
@@ -345,37 +334,6 @@
                 }
             ],
             "stateMutability": "view",
-            "type": "function"
-        },
-        "randomResult": {
-            "inputs": [],
-            "name": "randomResult",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        "rawFulfillRandomness": {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "requestId",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "randomness",
-                    "type": "uint256"
-                }
-            ],
-            "name": "rawFulfillRandomness",
-            "outputs": [],
-            "stateMutability": "nonpayable",
             "type": "function"
         },
         "renounceOwnership": {
@@ -438,6 +396,19 @@
                 }
             ],
             "name": "safeTransferFrom",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        "setActiveSale": {
+            "inputs": [
+                {
+                    "internalType": "bool",
+                    "name": "_isSaleActive",
+                    "type": "bool"
+                }
+            ],
+            "name": "setActiveSale",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -572,6 +543,25 @@
             "stateMutability": "view",
             "type": "function"
         },
+        "tokensOfOwner": {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                }
+            ],
+            "name": "tokensOfOwner",
+            "outputs": [
+                {
+                    "internalType": "uint256[]",
+                    "name": "",
+                    "type": "uint256[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
         "totalSupply": {
             "inputs": [],
             "name": "totalSupply",
@@ -617,13 +607,6 @@
                 }
             ],
             "name": "transferOwnership",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        "withdrawLink": {
-            "inputs": [],
-            "name": "withdrawLink",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"

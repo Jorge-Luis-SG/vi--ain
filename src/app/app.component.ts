@@ -16,8 +16,14 @@ export class AppComponent implements OnInit {
   ) {
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.contractService.connectAccount();
+    // this.parseAbi();
+  }
+
+  async parseAbi(){
+    const abi = await this.abiService.parseABI(this.contractService.VIIANSCollectionABI);
+    console.log('abi', abi);
   }
 
 }

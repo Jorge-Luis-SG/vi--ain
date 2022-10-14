@@ -16,7 +16,7 @@ momentTimezone().tz("America/Bogota");
 export class Mint2Component implements OnInit {
 
   public maxPerWallet = 2;
-  public maxValue = 1;
+  public maxValue = 2;
   public valor = 0;
   public dataStatus$!: Observable<any>;
 
@@ -105,14 +105,14 @@ export class Mint2Component implements OnInit {
       });
 
       /** Validar maximo de minteos permitidos */
-      if(balance + this.valor > this.maxPerWallet){
+      if(Number(balance) + this.valor > this.maxPerWallet){
         this.alertStepSrv.showBasicAlert('You have reached the maximum mint allowed', 'info');
         return;
       }
 
       const result: any = await this.alertStepSrv.showStepsGeneral({
         askMessage: 'Are you sure you want to mint ' + this.valor + ' NFTs?',
-        contractParams: {method: 'mintVIIANNFT', params: null}
+        contractParams: {method: 'mintVIIANNFT', params: [this.valor]}
       });
 
       // console.log('result', result);

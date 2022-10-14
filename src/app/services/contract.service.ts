@@ -763,12 +763,12 @@ export class ContractService {
     });
   }
 
-  async mintVIIANNFT(){
+  async mintVIIANNFT(nroTokens: any){
     const [ addr ] = this.accounts;
     return await this.calculateAndCallCustomABI({
       contractAddress: environment.nftCollectionContract,
       method: 'mintToken',
-      params: null,
+      params: [nroTokens],
       callType: 'send',
       optionals: { from: addr },
       urlABI: this.VIIANSCollectionABI
