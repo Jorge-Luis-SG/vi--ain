@@ -73,12 +73,26 @@ export class Mint2Component implements OnInit {
         this.alertStepSrv.showBasicAlert('You have reached the maximum mint allowed', 'info');
         return;
       }
-      console.log('balance', balance);
 
+      const result: any = await this.alertStepSrv.showStepsGeneral({
+        askMessage: 'Are you sure you want to mint ' + this.valor + ' NFTs?',
+        contractParams: {method: 'mintVIIANNFT', params: null}
+      });
 
+      console.log('result', result);
 
-      console.log('mint');
-      return;
+      if(!result.status){
+        this.alertStepSrv.showBasicAlert(result.data.message, 'error');
+        return;
+
+      }else{
+        this.alertStepSrv.showAlertWithTxHash({transactionHash: result.data.transactionHash})
+        .then(() => {
+          this.valor = 0;
+          window.location.reload();
+        });
+        return;
+      }
 
     } catch (err) {
       console.log('Error on Mint2Component.mint(): ', err);
