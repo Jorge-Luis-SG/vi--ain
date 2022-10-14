@@ -9,7 +9,7 @@ export const environment = {
   API_URL: '#',
   urlWeb: '#',
   configUrlAbi: "/assets/abi/DevToken.json",
-  contractAddress: "0xF40653f5ae2Bd90A8b9C493F15bFB24F6F3b1CC8",
+  contractAddress: "#",
   marketplaceAddress: "#",
   infuraId: "#",
   urlTokenLogo: "#",

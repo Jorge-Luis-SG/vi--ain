@@ -15,7 +15,7 @@ momentTimezone().tz("America/Bogota");
 })
 export class Mint2Component implements OnInit {
 
-  public maxValue = 1;
+  public maxValue = 2;
   public valor = 0;
   public dataStatus$!: Observable<any>;
 
