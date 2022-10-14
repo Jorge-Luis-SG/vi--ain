@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2stepsService } from 'src/app/services/sweetalert2steps.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mint2',
@@ -17,6 +19,7 @@ export class Mint2Component implements OnInit {
   constructor(
     private contractSrv: ContractService,
     private alertStepSrv: Sweetalert2stepsService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +41,11 @@ export class Mint2Component implements OnInit {
     }
   }
 
+  /**
+   * Mintear
+   * http://localhost:4200/mint-nft
+   * @returns 
+   */
   async mint(){
     try {
 
@@ -46,12 +54,37 @@ export class Mint2Component implements OnInit {
         this.alertStepSrv.showBasicAlert('Please enter a value greater than 0', 'info');
         return;
       }
-      
+
+      await this.spinner.show();
+
+      /** Validar Balance de usuario */
+      const [ account ] = this.contractSrv.accounts;
+      const balance = await this.contractSrv.calculateAndCallCustomABI({
+        contractAddress: environment.nftCollectionContract,
+        method: 'balanceOf',
+        params: [account],
+        callType: 'call',
+        optionals: null,
+        urlABI: this.contractSrv.VIIANSCollectionABI
+      });
+
+      /** Validar maximo de minteos permitidos */
+      if(balance + this.valor > this.maxValue){
+        this.alertStepSrv.showBasicAlert('You have reached the maximum mint allowed', 'info');
+        return;
+      }
+      console.log('balance', balance);
+
+
+
       console.log('mint');
+      return;
 
     } catch (err) {
       console.log('Error on Mint2Component.mint(): ', err);
       return;
+    }finally{
+      this.spinner.hide();
     }
   }
 }
