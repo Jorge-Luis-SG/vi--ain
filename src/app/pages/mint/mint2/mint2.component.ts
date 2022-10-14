@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { ContractService } from 'src/app/services/contract.service';
 import { Sweetalert2stepsService } from 'src/app/services/sweetalert2steps.service';
 import { environment } from 'src/environments/environment';
+import momentTimezone from 'moment-timezone';
+
+momentTimezone().tz("America/Bogota");
 
 @Component({
   selector: 'app-mint2',
@@ -59,15 +62,30 @@ export class Mint2Component implements OnInit {
 
       await this.spinner.show();
 
-      const whiteList = await this.contractSrv.checkWalletIntoWhiteList(account);
-      console.log('whiteList', whiteList);
-      if(!whiteList){
-        this.alertStepSrv.showBasicAlert('You are not in the whitelist', 'info');
-        return;
+      /** Validar WhiteList si lo amerita */
+      const currentTime = momentTimezone();
+      const start = momentTimezone.tz({ 
+        year : 2022, month : 9, day : 14, hour : 0, minute : 0, second : 0, millisecond : 0
+      }, "America/Bogota");
+      const end = momentTimezone.tz({ 
+        year : 2022, month : 9, day : 14, hour : 9, minute : 0, second : 0, millisecond : 0
+      }, "America/Bogota");
+      const isWhitelistTime = currentTime.isBetween(start, end);
+
+      /** Es tiempo de whiteList */
+      if(isWhitelistTime){
+
+        /** Validar si se encuentra dentro de la whitelist */
+        const whiteList = await this.contractSrv.checkWalletIntoWhiteList(account);
+        console.log('whiteList', whiteList);
+        if(!whiteList){
+          this.alertStepSrv.showBasicAlert('You are not in the whitelist', 'info');
+          return;
+        }
+
       }
 
       /** Validar Balance de usuario */
-      // const [ account ] = this.contractSrv.accounts;
       const balance = await this.contractSrv.calculateAndCallCustomABI({
         contractAddress: environment.nftCollectionContract,
         method: 'balanceOf',
