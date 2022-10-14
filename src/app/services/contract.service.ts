@@ -42,6 +42,7 @@ export class ContractService {
   public erc721ABI = '/assets/abi/erc721.json';
   public erc721ABIf = '/assets/abi/erc721fa.json';
   public marketplaceMindAbi = "/assets/abi/MarketplaceMind.json";
+  public VIIANSCollectionABI = "/assets/abi/VIAINSCollection.json";
   public waitForTransactions = 12000;
 
 
@@ -1630,6 +1631,7 @@ export class ContractService {
       return result;
 
     } catch (err: any) {
+      console.log({data});
       console.log('Error on ContractService@calculateAndCallCustomABI', err);
       throw new Error(err);
     }
