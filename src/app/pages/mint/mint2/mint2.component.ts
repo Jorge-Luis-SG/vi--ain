@@ -71,14 +71,14 @@ export class Mint2Component implements OnInit {
         year : 2022, month : 9, day : 14, hour : 9, minute : 0, second : 0, millisecond : 0
       }, "America/Bogota");
       const isWhitelistTime = currentTime.isBetween(start, end);
-      console.log('isWhitelistTime', isWhitelistTime);
+      // console.log('isWhitelistTime', isWhitelistTime);
 
       /** Es tiempo de whiteList */
       if(!isWhitelistTime){
 
         /** Validar si se encuentra dentro de la whitelist */
         const whiteList = await this.contractSrv.checkWalletIntoWhiteList(account);
-        console.log('whiteList', whiteList);
+        // console.log('whiteList', whiteList);
         if(!whiteList){
           this.alertStepSrv.showBasicAlert('You are not in the whitelist', 'info');
           return;
@@ -107,7 +107,7 @@ export class Mint2Component implements OnInit {
         contractParams: {method: 'mintVIIANNFT', params: null}
       });
 
-      console.log('result', result);
+      // console.log('result', result);
 
       if(!result.status){
         this.alertStepSrv.showBasicAlert(result.data.message, 'error');
