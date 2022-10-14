@@ -49,6 +49,8 @@ export class Mint2Component implements OnInit {
   async mint(){
     try {
 
+      const [ account ] = this.contractSrv.accounts;
+
       /** Validar si el valor es 0 */
       if(this.valor == 0){
         this.alertStepSrv.showBasicAlert('Please enter a value greater than 0', 'info');
@@ -57,8 +59,15 @@ export class Mint2Component implements OnInit {
 
       await this.spinner.show();
 
+      const whiteList = await this.contractSrv.checkWalletIntoWhiteList(account);
+      console.log('whiteList', whiteList);
+      if(!whiteList){
+        this.alertStepSrv.showBasicAlert('You are not in the whitelist', 'info');
+        return;
+      }
+
       /** Validar Balance de usuario */
-      const [ account ] = this.contractSrv.accounts;
+      // const [ account ] = this.contractSrv.accounts;
       const balance = await this.contractSrv.calculateAndCallCustomABI({
         contractAddress: environment.nftCollectionContract,
         method: 'balanceOf',
