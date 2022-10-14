@@ -22,7 +22,12 @@
               <input type="number" [value]="valor" [(ngModel)]="valor" />
               <span class="sumar" (click)="sumar()">+</span>
             </div>
-            <a href="#" class="btn">Mint Now</a>
+
+            <ng-container *ngIf="(dataStatus$ | async) as dataStatus; else connectWallet">
+              <a href="javascript:void(0)" class="btn" (click)="mint()">Mint Now</a>
+            </ng-container>
+
+
           </div>
         </div>
         <div class="mint-nft-box1-b d-flex flex-column flex-sm-row justify-content-between">
@@ -50,3 +55,10 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #connectWallet>
+  <a href="javascript:void(0)" class="btn" (click)="connect()">
+    Connect Wallet
+  </a>
+</ng-template>
