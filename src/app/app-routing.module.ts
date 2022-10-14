@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { PageBlogComponent } from './pages/blogs/page-blog/page-blog.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { BuyAndSellComponent } from './pages/dashboard/pages/buy-and-sell/buy-and-sell.component';
+import { CollectionNftComponent } from './pages/dashboard/pages/collection-nft/collection-nft.component';
+import { DashboardComponent } from './pages/dashboard/pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MintComponent } from './pages/mint/mint.component';
 import { Mint2Component } from './pages/mint/mint2/mint2.component';
@@ -32,6 +35,11 @@ const routes: Routes = [
   { path: 'mest', component: MestComponent },
   { path: 'nftix', component: NftixComponent },
   { path: 'pandarian', component: PandarianComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'collection', component: CollectionNftComponent },
+  { path: 'buy-and-sell', component: BuyAndSellComponent },
+
+
   { path: '**', component: Page404Component }
 ];
 

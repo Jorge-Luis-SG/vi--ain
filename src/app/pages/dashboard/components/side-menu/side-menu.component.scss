@@ -1,0 +1,156 @@
+@import "../../../../../styles.scss";
+
+.menu-all {
+  width: 310px;
+}
+.menu {
+  background-image: url(../../../../../assets/img/dash/menu-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 300px;
+  width: 100%;
+  padding: 1rem;
+  height: calc(100vh - 3rem);
+  margin: auto 0;
+  text-align: center;
+  border-radius: 1.5rem;
+  z-index: 999999;
+
+  //MENU BOTON
+  .toggle-menu {
+    background-color: #623eaf87;
+    border: 2.5px solid #623eaf;
+    padding: 0.35rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    transition: 0.5s;
+    right: -42px;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  //MENU BOTON
+
+  .amount {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.65rem 0;
+    @media screen and (max-width: 767px) {
+      font-size: 1.8rem;
+    }
+  }
+  .coin {
+    background-color: $color10;
+    border: none;
+    font-size: 0.9rem;
+    width: 65px;
+    border-radius: 1rem;
+    padding: 0.2rem 0;
+  }
+  h5 {
+    color: $textColor1;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+  }
+  & > img {
+    width: 105px;
+    margin: 1rem 0 1.5rem;
+  }
+  &-data {
+    background-color: #623eaf87;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    margin-bottom: 2rem;
+    border: 2.5px solid #623eaf;
+    &-money {
+      max-width: 200px;
+      width: 100%;
+      margin: 1.65rem auto;
+      h5 {
+        margin-bottom: 0.65rem;
+      }
+      span {
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+  .withdraw {
+    background-color: #b65cff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.65rem 0;
+    font-size: 1.15rem;
+    margin-top: 1.4rem;
+    @media screen and (max-width: 767px) {
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+    }
+  }
+  &-list {
+    li {
+      margin-top: 1.3rem;
+      padding: 0.5rem;
+      font-weight: bold;
+      color: $textColor1;
+      font-size: 1.15rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #683cb530;
+        color: #ae7bff;
+        border-radius: 0.35rem;
+        img {
+          margin-right: 2rem;
+          filter: drop-shadow(0 0 3px #ae7bff);
+        }
+      }
+      img {
+        margin-right: 2rem;
+      }
+      @media screen and (max-width: 992px) {
+        margin-top: 0.6rem;
+        font-size: 1.05rem;
+      }
+    }
+  }
+  .logout {
+    p {
+      font-weight: bold;
+      color: $textColor1;
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: #683cb530;
+        color: #ae7bff;
+        border-radius: 0.35rem;
+      }
+      img {
+        max-width: 25px;
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .menu {
+    transform: translateX(calc(-100% - 25px));
+    transition: transform 0.5s;
+  }
+  .menu-active {
+    transform: translateX(calc(-25px));
+    .toggle-menu {
+      border-radius: 0.75rem 0 0 0.75rem;
+      right: 0;
+      img {
+        content: url(../../../../../assets/img/menu-close2.png);
+      }
+    }
+  }
+}

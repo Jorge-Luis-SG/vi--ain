@@ -1,0 +1,77 @@
+<div class="dashboard d-flex overflow-hidden positive-relative">
+  <div class="d-flex align-items-start menu">
+    <app-side-menu></app-side-menu>
+  </div>
+  <div class="dashboard-container">
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <app-filter filter2="none" filter3="none"></app-filter>
+    <div class="dashboard-container-all">
+      <div class="dashboard-container-all-box1 card d-flex justify-content-end"
+      style="background-image: url(../../../../../assets/img/dash/cards/card{{bg}}.png)">
+        <div class="card-item position-relative">
+          <h5>{{title}}</h5>
+          <div class="card-item-box d-flex justify-content-between">
+            <div>
+              <p class="price">Price</p>
+              <p><img src="../../../../../assets/img/dash/reload.svg">{{likes}}</p>
+            </div>
+            <div>
+              <p class="eth">{{eth}} ETH</p>
+              <p class="dollar">${{price}}</p>
+              <p class="view">{{view}} views</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="dashboard-container-all-box2">
+        <div class="dashboard-container-all-box2-div1">
+          <h6 class="title">Vi-ain’s Collection</h6>
+          <p class="owned">Owned by <span>Vi-ains</span></p>
+          <div class="views d-flex align-items-center">
+            <div class="d-flex align-items-center"><img src="../../../../../assets/img/dash/view.svg" alt="View">2.5k
+              views</div>
+            <div class="d-flex align-items-center"><img src="../../../../../assets/img/dash/heart.svg" alt="Heart">5
+              favorites</div>
+          </div>
+          <div class="sales">
+            <div class="sales-box1 w-100 d-flex align-items-center justify-content-between">
+              <h5>Sales end October 9, 2022 at 9:28 am GMT-5</h5>
+              <div><p class="d-flex align-items-center"><img src="../../../../../assets/img/dash/eth.svg" alt="ETH">1 ETH
+              </p><span>(2,000 USDT)</span></div>
+            </div>
+            <div class="sales-box2 w-100 d-flex align-items-center justify-content-between">
+              <h5>Porcentaje Acumulado</h5>
+              <div>
+                <p class="d-flex align-items-center">= 0.0849</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-container-all-box2-div2">
+          <h6 class="title">Previous Sale</h6>
+          <div class="">
+            <app-status></app-status>
+            <app-status></app-status>
+            <app-status></app-status>
+            <app-status></app-status>
+            <app-status></app-status>
+            <app-status></app-status>
+            <app-status></app-status>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

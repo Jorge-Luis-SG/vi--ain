@@ -1,0 +1,59 @@
+<div class="dashboard d-flex overflow-hidden positive-relative">
+  <div class="d-flex align-items-start menu">
+    <app-side-menu></app-side-menu>
+  </div>
+  <div class="dashboard-container">
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <app-filter filter2="flex" filter3="none"></app-filter>
+    <div class="cards">
+      <app-cards bg="1" title="NFT Vi-ain’s Pink1" eth="0,25" price="21.533.10" view="2.5" likes="2.5M"></app-cards>
+      <app-cards bg="2" title="NFT Vi-ain’s Pink2" eth="0,25" price="21.533.10" view="2.5" likes="2.5M"></app-cards>
+      <app-cards bg="3" title="NFT Vi-ain’s Pink3" eth="0,25" price="21.533.10" view="2.5" likes="2.5M"></app-cards>
+      <app-cards bg="4" title="NFT Vi-ain’s Pink4" eth="0,25" price="21.533.10" view="2.5" likes="2.5M"></app-cards>
+      <app-cards bg="5" title="NFT Vi-ain’s Pink5" eth="0,25" price="21.533.10" view="2.5" likes="2.5M"></app-cards>
+    </div>
+    <div class="transactions w-100 position-relative">
+      <div class="transactions-box1 w-100">
+        <app-filter filter2="flex" filter3="none"></app-filter>
+        <div class="transactions-box1-container mb-0">
+
+          <ul class="transactions-box1-container-head ps-3 mb-4">
+            <li>Recepient</li>
+            <li class="text-end">Date</li>
+            <li class="text-center">Status</li>
+            <li>Amount</li>
+          </ul>
+          <app-status></app-status>
+          <app-status></app-status>
+          <app-status></app-status>
+          <app-status></app-status>
+          <app-status></app-status>
+          <app-status></app-status>
+
+        </div>
+      </div>
+      <div class="transactions-box2" id="fullWidth">
+        <h5>Payment <span>History</span></h5>
+        <div class="w-100 h-100 transactions-box2-containt">
+          <div class="transactions-box2-containt-btn d-flex justify-content-between mb-4">
+            <button class="full-view" (click)="fullWidth()">{{fullscreen}}</button>
+            <div class="d-flex justify-content-between btn-data">
+              <button class="btn-activate">1D</button>
+              <button>1W</button>
+            </div>
+
+          </div>
+
+        <div class="grafica overflow-hidden d-flex align-items-center justify-content-center h-100 w-100 p-3">
+          <div id="chart-container"></div>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
