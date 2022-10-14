@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 })
 export class Sweetalert2Service {
 
-  public title = 'MIND';
+  public title = 'VI-AIN';
 
   constructor() { }
 
-  showError(err, type) {
+  showError(err, type = 2) {
     try {
       let mess
       if (err.message) {
@@ -19,16 +19,16 @@ export class Sweetalert2Service {
       } else {
         mess = type == 1 ? JSON.parse(err.substring(err.search("{"), err.length)).message : err
       }
-      Swal.fire('MIND', mess, 'error');
+      Swal.fire(this.title, mess, 'error');
     } catch (error) {
       console.log("error", error)
-      Swal.fire('MIND', 'error', 'error');
+      Swal.fire(this.title, 'error', 'error');
     }
 
 
   }
 
-  showQuestion(err, type) {
+  showQuestion(err, type = 2) {
     try {
       let mess
       if (err.message) {
@@ -36,31 +36,31 @@ export class Sweetalert2Service {
       } else {
         mess = type == 1 ? JSON.parse(err.substring(err.search("{"), err.length)).message : err
       }
-      Swal.fire('MIND', mess, 'error');
+      Swal.fire(this.title, mess, 'error');
       return
     } catch (error) {
       console.log("error", error)
-      Swal.fire('MIND', 'error', 'error');
+      Swal.fire(this.title, 'error', 'error');
     }
 
 
 
   }
 
-  showWarning(message, type) {
+  showWarning(message, type = 2) {
     try {
       let mess = type == 1 ? JSON.parse(message.substring(message.search("{"), message.length)).message : message
-      Swal.fire('MIND', mess, 'warning');
+      Swal.fire(this.title, mess, 'warning');
       return
     } catch (error) {
       console.log("error", error)
-      Swal.fire('MIND', 'error', 'error');
+      Swal.fire(this.title, 'error', 'error');
 
     }
 
   }
 
-  showSuccess(message, type = 0, transactionHash?) {
+  showSuccess(message, type = 2, transactionHash?) {
     try {
       let mess;
 
@@ -80,11 +80,11 @@ export class Sweetalert2Service {
         return;
 
       }
-      Swal.fire('MIND', mess, 'success');
+      Swal.fire(this.title, mess, 'success');
       return
     } catch (error) {
       console.log("error", error)
-      Swal.fire('MIND', 'error', 'error');
+      Swal.fire(this.title, 'error', 'error');
     }
 
   }
